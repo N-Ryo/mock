@@ -1,0 +1,87 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@media (min-width: 768px){
+  .container {
+    width: 100%;
+  }
+}
+.navbar{
+  background-color: #5FE748;
+  li, a{
+    color: #fff;
+  }
+  li > a:hover{
+    background-color: inherit;
+  }
+  li > .nav-content:hover{
+    text-decoration: underline;
+  }
+}
+
+.nav-title{
+  font-weight: 500;
+  font-size: 300%;
+}
+
+.dropdown-toggle{
+  padding: 15px;
+  cursor: pointer;
+  b{
+    color: #3f9200;
+  }
+}
+.dropdown-toggle:hover{
+  b{
+    color: #fff;
+  }
+}
+.dropdown-menu{
+  border: solid 1px #ccc;
+  li{
+    color: #555;
+    width: 100%;
+    padding: 0 5px;
+    cursor: pointer;
+  }
+  li:hover{
+    color: #23527c;
+    background-color: #eee;
+  }
+}
+
+.form-control{
+  padding: 4px 8px;
+}
+
+.form-control{
+  height: 29.34px;
+}
+
+.nav-list{
+  vertical-align: middle;
+  box-sizing: border-box;
+  padding: 10px 10px;
+}
+.nav-last-content{
+  margin-right: 15px;
+}
+
+.nav-icon{
+    padding: 15px 10px;
+}
+
+footer{
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 90%;
+  border-top: solid 1px #555;
+  bottom: 0;
+  .footer-content{
+    padding: 0 10px;
+  }
+  small{
+    padding: 15px;
+    margin-left: 10px;
+  }
+}
