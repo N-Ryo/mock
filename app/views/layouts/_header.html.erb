@@ -3,22 +3,42 @@
     <nav>
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "mock", root_path, id: "logo", class: 'nav-title navbar-fixed-left' %></li>
-
-        <li class="dropdown">
-            <div class="dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
-              Languages <b class="caret"></b>
+        <li>
+          <div data-toggle="modal" data-target="#myModal" type="button">
+            <span class="nav-category">Category <b class="caret"></b></span>
+          </div>
+          <%# ヘッダーのモーダル%>
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Category</h4>
+                </div>
+                <div class="modal-body">
+                  <ul><p class="modal-category">Language</p>
+                    <div class="borderLine">
+                      <li>Ruby</li>
+                      <li>C</li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
             </div>
-          <ul class="dropdown-menu" role="menu">
-            <li>Ruby</li>
-            <li>C</li>
-          </ul>
-        </li>
-        <li class="nav-list"><%= text_field_tag :search, params[:search], class: 'form-control font-awesome fa', placeholder: "\uF002 Search or jump to..",id: "inlineFormInputGroup2" %></li>
+          </div>
+          <%# ヘッダーのモーダル%>
 
+        </li>
+        <%# ヘッダーの検索エンジン%>
+        <li class="nav-list pc-search"><%= text_field_tag :search, params[:search], class: 'form-control font-awesome fa', placeholder: "\uF002 Search or jump to..",id: "inlineFormInputGroup2" %></li>
+        <li class="nav-list sp-search"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></li>
+        <%# ヘッダーの検索エンジン%>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <%# if logged_in? %>
         <% if false %>
+          <li class="nav-icon"><i class="fa fa-bell fa-lg"></i></li>
+          <li class="nav-icon"><i class="fa fa-pencil fa-lg"></i></li>
           <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
             <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
@@ -34,10 +54,10 @@
             </ul>
           </li>
         <% else %>
-          <li class="nav-icon"><i class="fa fa-bell fa-lg"></i></li>
-          <li class="nav-icon"><i class="fa fa-pencil fa-lg"></i></li>
-          <li><%= link_to "Sign Up", new_user_path, class: 'nav-content' %></li>
-          <li class="nav-last-content"><%= link_to "Sign In", signin_path, class: 'nav-content' %></li>
+          <li class="sp-nav"><i class="fa fa-user-plus fa-lg nav-content"></i></li>
+          <li class="sp-nav nav-last-content"><%= link_to "", new_user_path, class: 'glyphicon glyphicon-log-in nav-content' %></li>
+          <li class="pc-nav"><%= link_to "Sign Up", new_user_path, class: 'nav-content' %></li>
+          <li class="pc-nav nav-last-content"><%= link_to "Sign In", signin_path, class: 'nav-content' %></li>
         <% end %>
       </ul>
     </nav>

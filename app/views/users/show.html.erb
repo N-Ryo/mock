@@ -11,13 +11,13 @@
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
+  <strong>Password:</strong>
+  <%= @user.password %>
 </p>
 
 <p>
-  <strong>Remember digest:</strong>
-  <%= @user.remember_digest %>
+  <strong>Image icon:</strong>
+  <%= image_tag @user.image.thumb.url %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

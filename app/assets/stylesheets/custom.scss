@@ -1,11 +1,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@media (min-width: 768px){
-  .container {
-    width: 100%;
-  }
+
+input::-webkit-input-placeholder {
+  font-size: 10px;
 }
+input:-moz-placeholder {
+  font-size: 10px;
+}
+input::-moz-placeholder {
+  font-size: 10px;
+}
+input:-ms-input-placeholder {
+  font-size: 10px;
+}
+
 .navbar{
   background-color: #5FE748;
   li, a{
@@ -19,23 +28,66 @@
   }
 }
 
-.nav-title{
-  font-weight: 500;
-  font-size: 300%;
-}
-
-.dropdown-toggle{
-  padding: 15px;
+//caret付きのヘッダーの調整
+.nav-category, .dropdown-toggle{
+  position: relative;
+  padding: 15px 5px;
   cursor: pointer;
   b{
     color: #3f9200;
   }
 }
-.dropdown-toggle:hover{
+.nav-category:hover, .dropdown-toggle:hover{
   b{
     color: #fff;
   }
 }
+
+
+//Category-modal内のCSS
+.modal-title{
+  color: #333;
+}
+
+.modal-body{
+  padding-left: 10px;
+  ul{
+    display: inline-block;
+    width: 50%;
+    color: #333;
+    padding: 0px;
+    .modal-category{
+      padding-left: 10px;
+      width: 100%;
+    }
+    li{
+      color: inherit;
+      padding-left: 20px;
+      list-style: none;
+    }
+  }
+}
+
+//Category modal内のborderline
+.borderLine{
+  border-top: solid 1px #eee;
+  padding-top: 5px;
+}
+
+.pc-search, .pc-nav{
+  display: none !important;
+}
+
+.sp-search{
+  padding-left: 5px;
+}
+
+.glyphicon{
+  font-size: 1.33333333em;
+  vertical-align: -15%;
+}
+
+/*
 .dropdown-menu{
   border: solid 1px #ccc;
   li{
@@ -49,27 +101,7 @@
     background-color: #eee;
   }
 }
-
-.form-control{
-  padding: 4px 8px;
-}
-
-.form-control{
-  height: 29.34px;
-}
-
-.nav-list{
-  vertical-align: middle;
-  box-sizing: border-box;
-  padding: 10px 10px;
-}
-.nav-last-content{
-  margin-right: 15px;
-}
-
-.nav-icon{
-    padding: 15px 10px;
-}
+*/
 
 footer{
   margin: 0 auto;
@@ -83,5 +115,85 @@ footer{
   small{
     padding: 15px;
     margin-left: 10px;
+  }
+}
+
+//bootstrapの補強
+
+.nav{
+  height: inherit;
+}
+
+.nav > li{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-title{
+  font-weight: 500;
+  font-size: 200%;
+}
+
+.navbar-nav{
+  margin: 0 -15px;
+}
+
+.navbar-nav > li > a{
+  padding: 15px 5px;
+}
+
+//navbarの左右寄せ
+.navbar-right{
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+}
+.navbar-left{
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+}
+
+//pc-search検索窓のサイズ調整
+.form-control{
+  padding: 4px 8px;
+  height: 30px;
+}
+
+.nav-last-content{
+  margin-right: 15px;
+}
+
+.nav-category{
+  margin: auto 0;
+  height: 20px;
+}
+.pc-search > input{
+  margin: auto 0;
+}
+
+@media (min-width: 768px){
+  .container {
+    width: 100%;
+  }
+  .navbar-nav > li{
+    float: none;
+  }
+  .sp-search, .sp-nav{
+    display: none !important;
+  }
+  .pc-search, .pc-nav{
+    display: inline-block !important;
+  }
+  .nav-title{
+    font-weight: 500;
+    font-size: 300%;
+  }
+  .navbar-nav > li > a{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .nav-category, .dropdown-toggle{
+    padding: 15px;
   }
 }

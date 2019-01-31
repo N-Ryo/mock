@@ -22,7 +22,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass'
 
 gem "font-awesome-rails"
-
+gem 'rmagick'
+gem 'carrierwave'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
