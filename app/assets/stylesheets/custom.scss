@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+    background-color: #f6f6f6;
+}
 
 input::-webkit-input-placeholder {
   font-size: 10px;
@@ -23,8 +26,12 @@ input:-ms-input-placeholder {
   li > a:hover{
     background-color: inherit;
   }
-  li > .nav-content:hover{
+  .pc-nav > .nav-content:hover{
     text-decoration: underline;
+  }
+  .sp-nav > .nav-content:hover{
+    text-decoration: none;
+    color: #3f9200;
   }
 }
 
@@ -80,7 +87,12 @@ input:-ms-input-placeholder {
 
 .sp-search{
   padding-left: 5px;
+  cursor: pointer;
+  :hover{
+    color: #3f9200;
+  }
 }
+
 
 .glyphicon{
   font-size: 1.33333333em;
@@ -195,5 +207,41 @@ footer{
   }
   .nav-category, .dropdown-toggle{
     padding: 15px;
+  }
+}
+
+
+//static_pages
+
+.welcome{
+  width: 100%;
+  padding: 50px 50px 100px 50px;
+  margin-top: -20px;
+  background-color: #5FE748;
+  color: #fff;
+  .welcome-message{
+    display: inline-block;
+    h1{
+      letter-spacing: 2px;
+    }
+    span{
+      color: #3f9200;
+    }
+  }
+  .welcome-sign{
+    display: inline-block;
+  }
+}
+
+.home{
+  padding: 32px 16px;
+  .center-col{
+    background-color: #fff;
+    .home-item-header{
+      padding-top: 16px;
+      padding-left: 16px;
+      padding-right: 16px;
+      border-bottom: solid 1px #e8e8e8;
+    }
   }
 }

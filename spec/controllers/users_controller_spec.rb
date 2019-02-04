@@ -28,8 +28,10 @@ RSpec.describe UsersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
+  # ここにテストを行う初期値を入力する。
+  #create!メソッドの後ろに置くことで、入力した値を格納しcreate!メソッドを呼び出したモデルのインスタンスとして生成する。
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    skip("Add a hash of attributes invalid for your model")
   }
 
   let(:invalid_attributes) {

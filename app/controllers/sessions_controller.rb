@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   # GET /sessions/new
   def new
   end
-  
+
   def create
     @session = Session.new(session_params)
 

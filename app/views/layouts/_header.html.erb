@@ -7,7 +7,7 @@
           <div data-toggle="modal" data-target="#myModal" type="button">
             <span class="nav-category">Category <b class="caret"></b></span>
           </div>
-          <%# ヘッダーのモーダル%>
+          <%# ヘッダーのcategoryモーダル%>
           <div class="modal fade" id="myModal">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -26,14 +26,38 @@
               </div>
             </div>
           </div>
-          <%# ヘッダーのモーダル%>
+          <%# ヘッダーのcategoryモーダル%>
 
         </li>
         <%# ヘッダーの検索エンジン%>
         <li class="nav-list pc-search"><%= text_field_tag :search, params[:search], class: 'form-control font-awesome fa', placeholder: "\uF002 Search or jump to..",id: "inlineFormInputGroup2" %></li>
-        <li class="nav-list sp-search"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></li>
+        <li class="nav-list sp-search"><div data-toggle="modal" data-target="#searchModal" type="button">
+          <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+        </div></li>
         <%# ヘッダーの検索エンジン%>
       </ul>
+
+      <%# ヘッダーのsearchモーダル%>
+      <div class="modal fade" id="searchModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Search</h4>
+            </div>
+            <div class="modal-body">
+              <%= text_field_tag :search, params[:search], class: 'form-control font-awesome fa', placeholder: "\uF002 Search or jump to..",id: "inlineFormInputGroup2" %>
+            </div>
+            <div class="modal-footer">
+              <div class="recommend">
+                人気の検索ワード
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%# ヘッダーのsearchモーダル%>
+
       <ul class="nav navbar-nav navbar-right">
         <%# if logged_in? %>
         <% if false %>
@@ -54,8 +78,8 @@
             </ul>
           </li>
         <% else %>
-          <li class="sp-nav"><i class="fa fa-user-plus fa-lg nav-content"></i></li>
-          <li class="sp-nav nav-last-content"><%= link_to "", new_user_path, class: 'glyphicon glyphicon-log-in nav-content' %></li>
+          <li class="sp-nav"><%= link_to "", new_user_path, class: 'fa fa-user-plus fa-lg nav-content' %></li>
+          <li class="sp-nav nav-last-content"><%= link_to "", signin_path, class: 'glyphicon glyphicon-log-in nav-content' %></li>
           <li class="pc-nav"><%= link_to "Sign Up", new_user_path, class: 'nav-content' %></li>
           <li class="pc-nav nav-last-content"><%= link_to "Sign In", signin_path, class: 'nav-content' %></li>
         <% end %>

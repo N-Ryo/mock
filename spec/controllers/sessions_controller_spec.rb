@@ -28,34 +28,18 @@ RSpec.describe SessionsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Session. As you add validations to Session, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  #let(:valid_attributes) {
+  #  skip("Add a hash of attributes valid for your model")
+  #}
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  #let(:invalid_attributes) {
+  #  skip("Add a hash of attributes invalid for your model")
+  #}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SessionsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
-
-  describe "GET #index" do
-    it "returns a success response" do
-      Session.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET #show" do
-    it "returns a success response" do
-      session = Session.create! valid_attributes
-      get :show, params: {id: session.to_param}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
 
   describe "GET #new" do
     it "returns a success response" do
@@ -63,15 +47,7 @@ RSpec.describe SessionsController, type: :controller do
       expect(response).to be_successful
     end
   end
-
-  describe "GET #edit" do
-    it "returns a success response" do
-      session = Session.create! valid_attributes
-      get :edit, params: {id: session.to_param}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
+=begin
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Session" do
@@ -94,35 +70,6 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested session" do
-        session = Session.create! valid_attributes
-        put :update, params: {id: session.to_param, session: new_attributes}, session: valid_session
-        session.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "redirects to the session" do
-        session = Session.create! valid_attributes
-        put :update, params: {id: session.to_param, session: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(session)
-      end
-    end
-
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        session = Session.create! valid_attributes
-        put :update, params: {id: session.to_param, session: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
-      end
-    end
-  end
-
   describe "DELETE #destroy" do
     it "destroys the requested session" do
       session = Session.create! valid_attributes
@@ -137,5 +84,6 @@ RSpec.describe SessionsController, type: :controller do
       expect(response).to redirect_to(sessions_url)
     end
   end
+=end
 
 end

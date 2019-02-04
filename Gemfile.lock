@@ -41,8 +41,9 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    autoprefixer-rails (9.4.6)
+    autoprefixer-rails (9.4.7)
       execjs
+    bcrypt (3.1.12-x64-mingw32)
     bindex (0.5.0)
     bootstrap-sass (3.4.0)
       autoprefixer-rails (>= 5.2.1)
@@ -74,11 +75,11 @@ GEM
     diff-lcs (1.3)
     erubi (1.8.0)
     execjs (2.7.0)
-    factory_bot (4.11.1)
-      activesupport (>= 3.0.0)
-    factory_bot_rails (4.11.1)
-      factory_bot (~> 4.11.1)
-      railties (>= 3.0.0)
+    factory_bot (5.0.0)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.0)
+      factory_bot (~> 5.0.0)
+      railties (>= 4.2.0)
     ffi (1.9.25-x64-mingw32)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
@@ -219,6 +220,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootstrap-sass
   byebug
   capybara (~> 2.13)
