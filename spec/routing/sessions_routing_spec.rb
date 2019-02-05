@@ -12,7 +12,7 @@ RSpec.describe SessionsController, type: :routing do
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/signout/1").to route_to("sessions#destroy", :id => "1")
+      expect(:delete => "/signout").to route_to("sessions#destroy")
     end
   end
 end
