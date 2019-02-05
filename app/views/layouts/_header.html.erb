@@ -78,9 +78,9 @@
             </ul>
           </li>
         <% else %>
-          <li class="sp-nav"><%= link_to "", new_user_path, class: 'fa fa-user-plus fa-lg nav-content' %></li>
+          <li class="sp-nav"><%= link_to "", "/signup", class: 'fa fa-user-plus fa-lg nav-content' %></li>
           <li class="sp-nav nav-last-content"><%= link_to "", signin_path, class: 'glyphicon glyphicon-log-in nav-content' %></li>
-          <li class="pc-nav"><%= link_to "Sign Up", new_user_path, class: 'nav-content' %></li>
+          <li class="pc-nav"><%= link_to "Sign Up", "/signup", class: 'nav-content' %></li>
           <li class="pc-nav nav-last-content"><%= link_to "Sign In", signin_path, class: 'nav-content' %></li>
         <% end %>
       </ul>

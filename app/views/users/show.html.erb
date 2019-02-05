@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+
+<% provide(:title, @user.name) %>
+
+
+<h1>
+  <%= gravatar_for @user %>
+</h1>
 
 <p>
   <strong>Name:</strong>
@@ -15,10 +21,7 @@
   <%= @user.password %>
 </p>
 
-<p>
-  <strong>Image icon:</strong>
-  <%= image_tag @user.image.thumb.url %>
-</p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
