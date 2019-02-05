@@ -121,6 +121,8 @@ input:-ms-input-placeholder {
   }
 }
 */
+
+
 //form
 
 
@@ -139,6 +141,22 @@ input:-ms-input-placeholder {
   }
 }
 
+
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+//footer
 footer{
   margin: 0 auto;
   margin-top: 10px;
