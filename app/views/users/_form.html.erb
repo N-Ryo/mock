@@ -21,6 +21,14 @@
     <%= form.text_field :password_confirmation, id: :user_password_confirmation %>
   </div>
 
+
+  <div class="field">
+    <% if @user.image? %>
+     <%= image_tag @user.image.url if @user.image?%>
+    <% end %>
+    <%= form.file_field :image %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

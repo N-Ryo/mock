@@ -8,9 +8,10 @@
 
   <body>
     <%= render 'layouts/header' %>
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    <%= render 'layouts/devise_setup'%>
 
     <%= yield %>
     <%= render 'layouts/footer' %>
