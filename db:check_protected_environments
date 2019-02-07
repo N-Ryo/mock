@@ -1,20 +1,10 @@
-D, [2019-02-05T08:22:37.723886 #4] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-D, [2019-02-05T08:22:37.737841 #4] DEBUG -- :   [1m[35m (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
 rails aborted!
-ActiveRecord::NoEnvironmentInSchemaError: 
-
-Environment data not found in the schema. To resolve this issue, run: 
-
-        bin/rails db:environment:set RAILS_ENV=production
-
-/app/vendor/bundle/ruby/2.5.0/gems/activerecord-5.1.6.1/lib/active_record/migration.rb:1275:in `last_stored_environment'
-/app/vendor/bundle/ruby/2.5.0/gems/activerecord-5.1.6.1/lib/active_record/tasks/database_tasks.rb:56:in `check_protected_environments!'
-/app/vendor/bundle/ruby/2.5.0/gems/activerecord-5.1.6.1/lib/active_record/railties/databases.rake:11:in `block (2 levels) in <top (required)>'
+Don't know how to build task 'TOP' (See the list of available tasks with `rake --tasks`)
+Did you mean?  tmp
 /app/vendor/bundle/ruby/2.5.0/gems/railties-5.1.6.1/lib/rails/commands/rake/rake_command.rb:21:in `block in perform'
 /app/vendor/bundle/ruby/2.5.0/gems/railties-5.1.6.1/lib/rails/commands/rake/rake_command.rb:18:in `perform'
 /app/vendor/bundle/ruby/2.5.0/gems/railties-5.1.6.1/lib/rails/command.rb:46:in `invoke'
 /app/vendor/bundle/ruby/2.5.0/gems/railties-5.1.6.1/lib/rails/commands.rb:16:in `<top (required)>'
 /app/bin/rails:4:in `require'
 /app/bin/rails:4:in `<main>'
-Tasks: TOP => db:migrate:reset => db:drop => db:check_protected_environments
 (See full trace by running task with --trace)

@@ -1,14 +1,16 @@
-<div class="welcome">
-  <div class="row">
-    <div class="welcome-message col-sm-8">
-      <h1>Let's be <span>mo</span>ved ha<span>ck</span>s!</h1>
-      <p>mockはすべてのエンジニアへ向けた技術に関する感動を共有するサービスです。自分がコーディング・勉強をしている時に感動した技術を他のエンジニアと共有しましょう。</p>
-    </div>
-    <div class="welcome-sign col-sm-4">
-      signin とか signup とか
+<% if !logged_in?%>
+  <div class="welcome">
+    <div class="row">
+      <div class="welcome-message col-sm-8">
+        <h1>Let's be <span>mo</span>ved ha<span>ck</span>s!</h1>
+        <p>mockはすべてのエンジニアへ向けた技術に関する感動を共有するサービスです。自分がコーディング・勉強をしている時に感動した技術を他のエンジニアと共有しましょう。</p>
+      </div>
+      <div class="welcome-sign col-sm-4">
+        signin とか signup とか
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 <div class="home row">
   <div class="col-sm-2">
     <div class="left-col">
