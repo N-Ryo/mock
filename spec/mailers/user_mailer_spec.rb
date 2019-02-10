@@ -18,7 +18,6 @@ let(:user) { FactoryBot.create(:user) }
       expect(mail.body.encoded).to match CGI.escape(user.email)
     end
   end
-=end
 
   describe "password_reset" do
     let(:mail) { UserMailer.password_reset }
@@ -33,5 +32,6 @@ let(:user) { FactoryBot.create(:user) }
       expect(mail.body.encoded).to match("Hi")
     end
   end
+=end
 
 end
