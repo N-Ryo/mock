@@ -1,6 +1,7 @@
 class CodesController < ApplicationController
   before_action :set_code, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_hack
+  before_action :logged_in_user
   # GET /codes
   # GET /codes.json
   def index
@@ -24,11 +25,11 @@ class CodesController < ApplicationController
   # POST /codes
   # POST /codes.json
   def create
-    @code = Code.new(code_params)
-
+    @code = current_user.codes.build(code_params)
+    @code.hack_id =  params[:hack_id]
     respond_to do |format|
       if @code.save
-        format.html { redirect_to @code, notice: 'Code was successfully created.' }
+        format.html { redirect_to hack_code_path(@code.hack_id, @code.id), notice: 'Code was successfully created.' }
         format.json { render :show, status: :created, location: @code }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class CodesController < ApplicationController
   def destroy
     @code.destroy
     respond_to do |format|
-      format.html { redirect_to codes_url, notice: 'Code was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Code was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +68,13 @@ class CodesController < ApplicationController
       @code = Code.find(params[:id])
     end
 
+    def set_hack
+      @hack = Hack.find(params[:hack_id])
+    end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def code_params
-      params.require(:code).permit(:content, :tag)
+      params.require(:code).permit(:content, :tag, :title)
     end
 end

@@ -1,14 +1,17 @@
 class User < ApplicationRecord
+  #dependent: :destroy は実装しない。
+  #Hack categoryに対してモデルを組んで、codesに対してdependentするのはありかも→採用
+  has_many :codes
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
   #カラムの名前をmount_uploaderに指定
   mount_uploader :image, ImageUploader
   #email-validation
-  #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true, length: { maximum: 30 }
   validates :email, presence: true, length: { maximum: 255 },
-                    #format: { with: VALID_EMAIL_REGEX },
+                    format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true         

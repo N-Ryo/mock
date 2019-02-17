@@ -10,13 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190210130822) do
+ActiveRecord::Schema.define(version: 20190214165413) do
 
   create_table "codes", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "hack_id"
+    t.integer "user_id"
+    t.integer "title"
+    t.index ["hack_id"], name: "index_codes_on_hack_id"
+    t.index ["user_id", "created_at"], name: "index_codes_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_codes_on_user_id"
+  end
+
+  create_table "hacks", force: :cascade do |t|
+    t.string "category"
+    t.string "subcategory"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,12 +65,14 @@ ActiveRecord::Schema.define(version: 20190210130822) do
     t.string "image"
     t.string "password_digest"
     t.string "remember_digest"
-    t.boolean "admin"
+    t.boolean "admin", default: false, null: false
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_users_on_user_id"
   end
 
 end

@@ -1,4 +1,8 @@
-<%= form_with(model: code, local: true) do |form| %>
+
+<%= @hack.category%>
+<%= @hack.subcategory%>
+<%= @hack.tag_list%>
+<%= form_with url: hack_codes_path(@hack.id), model: code, local: true do |form| %>
   <% if code.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(code.errors.count, "error") %> prohibited this code from being saved:</h2>

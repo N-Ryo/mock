@@ -182,6 +182,11 @@ footer{
   @include box_sizing;
 }
 
+
+// tagitの「No search results」を非表示に
+.ui-helper-hidden-accessible {
+  display: none;
+}
 //bootstrapの補強
 
 .nav{
