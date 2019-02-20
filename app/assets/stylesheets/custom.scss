@@ -265,6 +265,9 @@ footer{
   .nav-category, .dropdown-toggle{
     padding: 15px;
   }
+  .welcome-sign{
+    display: inline-block !important;
+  }
 }
 
 
@@ -286,7 +289,7 @@ footer{
     }
   }
   .welcome-sign{
-    display: inline-block;
+    display: none;
   }
 }
 

@@ -14,6 +14,11 @@ gem 'puma', '~> 3.7'
 
 gem 'sass-rails'
 gem 'sassc-rails'
+# Use authentication api
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
