@@ -1,4 +1,4 @@
-<header class="navbar">
+<header class="navbar<%if request.path =="/"%> top<%=request.path%><%end%>">
   <div class="container">
     <nav>
       <ul class="nav navbar-nav navbar-left">
@@ -65,7 +65,6 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-        <%#  if false %>
           <li class="nav-icon"><%= link_to "", "#", class: 'fa fa-bell fa-lg nav-content' %></li>
           <li class="nav-icon"><%= link_to "", new_hack_path, class: 'fa fa-pencil fa-lg nav-content' %></li>
           <li><%= link_to "Users", users_path %></li>

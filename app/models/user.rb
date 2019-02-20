@@ -1,7 +1,10 @@
 class User < ApplicationRecord
-  #dependent: :destroy は実装しない。
-  #Hack categoryに対してモデルを組んで、codesに対してdependentするのはありかも→採用
-  has_many :codes
+  has_many :comments
+
+  has_many :active_relationships, class_name:  "Users_relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest

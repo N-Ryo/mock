@@ -10,24 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190214165413) do
+ActiveRecord::Schema.define(version: 20190220095948) do
 
-  create_table "codes", force: :cascade do |t|
-    t.text "content"
-    t.string "tag"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "hack_id"
+  end
+
+  create_table "category_role_relationships", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_role_relationships_on_category_id"
+    t.index ["role_id"], name: "index_category_role_relationships_on_role_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "feeling"
+    t.string "content"
     t.integer "user_id"
-    t.integer "title"
-    t.index ["hack_id"], name: "index_codes_on_hack_id"
-    t.index ["user_id", "created_at"], name: "index_codes_on_user_id_and_created_at"
-    t.index ["user_id"], name: "index_codes_on_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "hacks", force: :cascade do |t|
-    t.string "category"
-    t.string "subcategory"
+    t.integer "category_role_relationship_id"
+    t.integer "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_role_relationship_id"], name: "index_hacks_on_category_role_relationship_id"
+    t.index ["comment_id"], name: "index_hacks_on_comment_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,8 +91,16 @@ ActiveRecord::Schema.define(version: 20190214165413) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_users_on_user_id"
+  end
+
+  create_table "users_relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_users_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_users_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_users_relationships_on_follower_id"
   end
 
 end

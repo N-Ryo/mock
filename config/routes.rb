@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :hacks
+  resources :comments
   resources :hacks, only: [:new, :create, :destroy] do 
     resources :codes, only: [:show, :new, :create, :edit, :update, :destroy]
   end

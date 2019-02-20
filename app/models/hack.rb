@@ -1,4 +1,4 @@
 class Hack < ApplicationRecord
-    has_many :codes, dependent: :destroy
-    acts_as_taggable
+  belongs_to :category_role_relationship
+  belongs_to :comment
 end

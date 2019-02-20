@@ -1,0 +1,2 @@
+class UsersRelationship < ApplicationRecord
+end

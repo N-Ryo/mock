@@ -9,7 +9,7 @@
 }
 
 body{
-    background-color: #f6f6f6;
+  background-color: #f6f6f6;
 }
 
 input::-webkit-input-placeholder {
@@ -27,6 +27,7 @@ input:-ms-input-placeholder {
 
 .navbar{
   background-color: #5FE748;
+  overflow: hidden;
   li, a{
     color: #fff;
   }
@@ -216,6 +217,7 @@ footer{
   display: inline-block;
   vertical-align: middle;
   float: right;
+  margin-right: 0;
 }
 .navbar-left{
   display: inline-block;
@@ -275,7 +277,8 @@ footer{
 
 .welcome{
   width: 100%;
-  padding: 50px 50px 100px 50px;
+  overflow: hidden;
+  padding: 150px 50px 100px 50px;
   margin-top: -20px;
   background-color: #5FE748;
   color: #fff;
@@ -297,6 +300,7 @@ footer{
   padding: 32px 16px;
   .center-col{
     background-color: #fff;
+    height: 1000px;
     .home-item-header{
       padding-top: 16px;
       padding-left: 16px;
