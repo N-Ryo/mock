@@ -12,11 +12,16 @@
   </div>
 <% end %>
 <div class="home row">
-  <div class="left-col col-sm-2">
+  <%if logged_in?%>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  <%end%>
+  <div class="left-col col-md-2">
     <a href="/signup">SignUp</a>
   </div>
 
-  <div class="center-col col-sm-7">
+  <div class="center-col col-md-7">
       <div class="home-item-header">
         <p>ヘッダー</p>
       </div>
@@ -24,7 +29,7 @@
       <a href="/hacks/new">Make hack</a>
   </div>
 
-  <div class="right-col col-sm-3">
+  <div class="right-col col-md-3">
     <a href="/">TopPage</a>
   </div>
 </div>

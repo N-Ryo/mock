@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  resources :hacks
-  resources :comments
-  resources :hacks, only: [:new, :create, :destroy] do 
-    resources :codes, only: [:show, :new, :create, :edit, :update, :destroy]
-  end
-  resources :users
   root   'static_pages#home'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
@@ -12,7 +6,18 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :hacks
+  resources :comments
+  resources :hacks, only: [:new, :create, :destroy] do 
+    resources :codes, only: [:show, :new, :create, :edit, :update, :destroy]
+  end
+  
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :relationships,       only: [:create, :destroy]
 end

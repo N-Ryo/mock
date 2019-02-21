@@ -12,6 +12,9 @@ body{
   background-color: #f6f6f6;
 }
 
+.noscroll-x{
+  overflow-x: hidden;
+}
 input::-webkit-input-placeholder {
   font-size: 10px;
 }
@@ -27,7 +30,6 @@ input:-ms-input-placeholder {
 
 .navbar{
   background-color: #5FE748;
-  overflow: hidden;
   li, a{
     color: #fff;
   }
@@ -107,21 +109,11 @@ input:-ms-input-placeholder {
   vertical-align: -15%;
 }
 
-/*
+
 .dropdown-menu{
-  border: solid 1px #ccc;
-  li{
-    color: #555;
-    width: 100%;
-    padding: 0 5px;
-    cursor: pointer;
-  }
-  li:hover{
-    color: #23527c;
-    background-color: #eee;
-  }
+  top: 35px;
 }
-*/
+
 
 
 //form
