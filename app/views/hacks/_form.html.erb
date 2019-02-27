@@ -11,17 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :category_role_relationship_id %>
-    <%= form.text_field :category_role_relationship_id, id: :hack_category_role_relationship_id %>
+
+
+  <div class="field form-group">
+    <%= form.label "Category" %>
+    <%= form.collection_select(:category_id, Category.all, :id, :name) %>
   </div>
 
-  <div class="field">
-    <%= form.label :comment_id %>
-    <%= form.text_field :comment_id, id: :hack_comment_id %>
+
+  <%#= form.fields_for :role, hack.build_role do |r|%>
+  <div class="field form-group">
+    <%#= r.label "Role" %>
+    <%#= r.collection_select(:role_id, Role.all, :id, :name) %>
+    <%= form.label "Role" %>
+    <%= form.collection_select(:role_id, Role.all, :id, :name) %>
+
+  </div>
+
+  <%#end%>
+
+  <div class="field form-group">
+    <%= form.label :hack, :tag_list %>
+    <ul id="hack-tags"></ul>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :hack, :overview %>
+    <%= form.text_area :overview, id: :hack_overview %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= javascript_tag do %>
+var myProject = { all_tag_list: <%= raw @all_tag_list %> };
+<%end%>

@@ -10,11 +10,15 @@ class HacksController < ApplicationController
   # GET /hacks/1
   # GET /hacks/1.json
   def show
+    @comment = Comment.new
+    @comments ||= Comment.all
+    @user ||= current_user
   end
 
   # GET /hacks/new
   def new
     @hack = Hack.new
+    @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
   end
 
   # GET /hacks/1/edit
@@ -64,11 +68,14 @@ class HacksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hack
-      @hack = Hack.find(params[:id])
+      unless hack_id = params[:hack_id]
+        hack_id = params[:id]
+      end
+      @hack = Hack.find(hack_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hack_params
-      params.require(:hack).permit(:category_role_relationship_id, :comment_id)
+      params.require(:hack).permit(:id, :tag_list, :overview, :category_id, :role_id)
     end
 end

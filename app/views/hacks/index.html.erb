@@ -2,27 +2,6 @@
 
 <h1>Hacks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Category role relationship</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @hacks.each do |hack| %>
-      <tr>
-        <td><%= hack.category_role_relationship %></td>
-        <td><%= hack.comment %></td>
-        <td><%= link_to 'Show', hack %></td>
-        <td><%= link_to 'Edit', edit_hack_path(hack) %></td>
-        <td><%= link_to 'Destroy', hack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 

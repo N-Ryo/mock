@@ -1,6 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+  helper_method :category_list, :role_list
+
+  def category_list
+    @category_list ||= Category.all   
+  end
+
+  def role_list
+    @role_list ||= Role.all
+  end
+
   private
 
     # ユーザーのログインを確認する
@@ -11,4 +21,5 @@ class ApplicationController < ActionController::Base
         redirect_to signin_url
       end
     end
+
 end

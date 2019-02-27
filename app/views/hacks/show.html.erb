@@ -1,14 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Category role relationship:</strong>
-  <%= @hack.category_role_relationship %>
+  <strong>Category:</strong>
+  <%= @hack.category.name %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
-  <%= @hack.comment %>
+  <strong>Role:</strong>
+  <%= @hack.role.name %>
 </p>
 
-<%= link_to 'Edit', edit_hack_path(@hack) %> |
+<p>
+  <strong>Tag_list:</strong>
+  <% @hack.tag_list.each do |tag| %>
+    <span class="label label-primary"><%= tag %></span>
+  <% end %>
+</p>
+
+<p>
+  <strong>Overview:</strong>
+  <%= @hack.overview %>
+</p>
+
+<% @comments.each do |comment|%>
+  <%= render 'comments/feeling', {comment: comment}%>
+  <p>
+    <%=comment.content%><br>
+    <%=comment.created_at%>
+  </p>
+<% end %>
+
+<p><%= @comments.count %>コメント</p>
+<%= render 'comments/form'%>
+
+
+
 <%= link_to 'Back', hacks_path %>

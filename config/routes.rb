@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'roles/create', to: 'roles#create'
+
   root   'static_pages#home'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
@@ -11,10 +13,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :hacks
-  resources :comments
-  resources :hacks, only: [:new, :create, :destroy] do 
-    resources :codes, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :hacks, only: [:index, :show, :new, :create, :destroy] do 
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
   
   resources :account_activations, only: [:edit]

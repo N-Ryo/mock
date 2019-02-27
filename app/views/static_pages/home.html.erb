@@ -6,7 +6,20 @@
         <p>mockはすべてのエンジニアへ向けた技術に関する感動を共有するサービスです。自分がコーディング・勉強をしている時に感動した技術を他のエンジニアと共有しましょう。</p>
       </div>
       <div class="welcome-sign col-sm-4">
-        <%= render 'sessions/form'%>
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active"><a href="#top-signin" data-toggle="tab">Sign In</a></li>
+          <li><a href="#top-signup" data-toggle="tab">Sign Up</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="top-signin">
+            <%= render 'sessions/form'%>
+          </div>
+          <div class="tab-pane" id="top-signup">
+            <%= render 'users/form', user: @user%>
+          </div>
+        </div>
+        
+
       </div>
     </div>
   </div>

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.turbolinks
 //= require tag-it
 //= require bootstrap
 //= require turbolinks

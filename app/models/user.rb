@@ -14,7 +14,7 @@ class User < ApplicationRecord
   before_save   :downcase_email
   before_create :create_activation_digest
   #カラムの名前をmount_uploaderに指定
-  mount_uploader :image, ImageUploader
+  #mount_uploader :image, ImageUploader
   #email-validation
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true, length: { maximum: 30 }
@@ -22,7 +22,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true         
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)

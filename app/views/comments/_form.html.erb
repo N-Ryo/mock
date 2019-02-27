@@ -1,32 +1,44 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%if logged_in?%>
 
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_with(url: hack_comments_path(@hack.id), model: Comment.new, local: true) do |form| %>
+    <% if @comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this @comment from being saved:</h2>
+
+        <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :hack_id, value: @hack.id %>
+    <p><%= current_user.name %>がコメントしようとしています</p>
+    <div class="field">
+      <%= form.label :feeling %>
+      <%= form.label "Moving!" %>
+      <%= form.radio_button :feeling, 3, {id: :@comment_feeling, checked: true} %>
+      <%= form.label "surprized" %>
+      <%= form.radio_button :feeling, 2, id: :@comment_feeling %>
+      <%= form.label "Not so bad" %>
+      <%= form.radio_button :feeling, 1, id: :@comment_feeling %>
+      <%= form.label "Too Bad" %>
+      <%= form.radio_button :feeling, 0, id: :@comment_feeling %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :feeling %>
-    <%= form.number_field :feeling, id: :comment_feeling %>
-  </div>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_field :content, id: :@comment_content %>
+    </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content, id: :comment_content %>
-  </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :comment_user_id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
 <% end %>
+<%else%>
+  <p>ログインしようぜ</p>
+<%end%>

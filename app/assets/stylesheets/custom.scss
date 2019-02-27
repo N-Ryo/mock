@@ -62,6 +62,7 @@ input:-ms-input-placeholder {
 
 
 //Category-modal内のCSS
+
 .modal-title{
   color: #333;
 }
@@ -70,17 +71,18 @@ input:-ms-input-placeholder {
   padding-left: 10px;
   ul{
     display: inline-block;
-    width: 50%;
+    width: 100%;
     color: #333;
     padding: 0px;
     .modal-category{
       padding-left: 10px;
-      width: 100%;
     }
     li{
       color: inherit;
       padding-left: 20px;
       list-style: none;
+      width: 45%;
+      display: inline-block;
     }
   }
 }
@@ -262,20 +264,32 @@ footer{
   .welcome-sign{
     display: inline-block !important;
   }
+  .modal-dialog{
+    width: 80%;
+  }
+  .modal-body{
+    ul{
+      li{
+        width: 30%;
+      }
+    }
+  }
 }
-
 
 //static_pages
 
 .welcome{
   width: 100%;
   overflow: hidden;
-  padding: 150px 50px 100px 50px;
+  padding: 100px 2vw 80px 2vw;
   margin-top: -20px;
   background-color: #5FE748;
   color: #fff;
+  .row{
+    display: flex;
+    align-items: center;
+  }
   .welcome-message{
-    display: inline-block;
     h1{
       letter-spacing: 2px;
     }
@@ -286,6 +300,57 @@ footer{
   .welcome-sign{
     display: none;
   }
+
+  .checkbox input[type="checkbox"]{
+    margin-left: 0;
+  }
+  
+  .checkbox span{
+    margin-left: 25px;
+  }
+  
+  .top-btn{
+    background-color: rgba($color: #fff, $alpha: 0);
+    border: solid 2px #fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .nav-tabs > li > a,
+  .nav-tabs > li.active > a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .nav-justified, .nav-tabs.nav-justified {
+    margin-bottom: -2px;
+  }
+  
+  .nav-tabs.nav-justified > li > a,
+  .nav-tabs.nav-justified > li > a:hover,
+  .nav-tabs.nav-justified > li > a:focus{
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid #fff;
+  }
+  
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus{
+    border: 2px solid #fff;
+    border-bottom: none;
+    background-color: inherit;
+    color: inherit;
+  }
+  
+  .tab-pane{
+    padding: 10px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  
 }
 
 .home{

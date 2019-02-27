@@ -1,3 +1,4 @@
 class Role < ApplicationRecord
-  has_many :hacks
+  has_many :categories
+  has_many :hacks, inverse_of: :role
 end

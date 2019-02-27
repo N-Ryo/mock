@@ -18,32 +18,26 @@ ActiveRecord::Schema.define(version: 20190220095948) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_role_relationships", force: :cascade do |t|
-    t.integer "category_id"
-    t.integer "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_category_role_relationships_on_category_id"
-    t.index ["role_id"], name: "index_category_role_relationships_on_role_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer "feeling"
     t.string "content"
     t.integer "user_id"
+    t.integer "hack_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["hack_id"], name: "index_comments_on_hack_id"
     t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "hacks", force: :cascade do |t|
-    t.integer "category_role_relationship_id"
-    t.integer "comment_id"
+    t.text "overview"
+    t.integer "category_id"
+    t.integer "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_role_relationship_id"], name: "index_hacks_on_category_role_relationship_id"
-    t.index ["comment_id"], name: "index_hacks_on_comment_id"
+    t.index ["category_id"], name: "index_hacks_on_category_id"
+    t.index ["role_id"], name: "index_hacks_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|

@@ -56,15 +56,22 @@
         <h4 class="modal-title">Category</h4>
       </div>
       <div class="modal-body">
-        <ul><p class="modal-category">Language</p>
+        <ul><p class="modal-category">Category</p>
           <div class="borderLine">
-            <li>Ruby</li>
-            <li>C</li>
+            <% category_list.each do |category|%>
+              <li><%=category.name%></li>
+            <%end%>
           </div>
         </ul>
       </div>
-      <div class="modal-header">
-        <h4 class="modal-title">Subcategory</h4>
+      <div class="modal-body">
+        <ul><p class="modal-category">Role</p>
+          <div class="borderLine">
+            <% role_list.each do |role|%>
+              <li><%=role.name%></li>
+            <%end%>
+          </div>
+        </ul>
       </div>
     </div>
   </div>
