@@ -7,8 +7,8 @@
       </div>
       <div class="welcome-sign col-sm-4">
         <ul class="nav nav-tabs nav-justified">
-          <li class="active"><a href="#top-signin" data-toggle="tab">Sign In</a></li>
-          <li><a href="#top-signup" data-toggle="tab">Sign Up</a></li>
+          <li class="active left-nav"><a href="#top-signin" data-toggle="tab">Sign In</a></li>
+          <li class="right-nav"><a href="#top-signup" data-toggle="tab">Sign Up</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="top-signin">
@@ -31,18 +31,54 @@
     </section>
   <%end%>
   <div class="left-col col-md-2">
-    <a href="/signup">SignUp</a>
+    <ul class="nav nav-pills nav-stacked pc-trend-nav">
+      <li class="active"><a href="#daily" data-toggle="pill">Daily</a></li>
+      <li><a href="#weekly" data-toggle="pill">Weekly</a></li>
+      <li><a href="#monthly" data-toggle="pill">Monthly</a></li>
+    </ul>
+    <ul class="nav nav-tabs nav-justified sp-trend-nav">
+      <li class="active"><a href="#daily" data-toggle="tab">Daily</a></li>
+      <li><a href="#weekly" data-toggle="tab">Weekly</a></li>
+      <li><a href="#monthly" data-toggle="tab">Monthly</a></li>
+    </ul>
   </div>
 
   <div class="center-col col-md-7">
-      <div class="home-item-header">
-        <p>ヘッダー</p>
+    <div class="tab-content">
+      <div class="tab-pane active daily-trend" id="daily">
+        <div class="home-item-header">
+          <p>ヘッダー</p>
+        </div>
+        <% if @daily_hacks%>
+        <% @daily_hacks.each do |daily_hack|%>
+          <%= render partial: 'hacks/content', locals: {hack: daily_hack} %>
+        <%end%>
+        <%end%>
       </div>
-      <a href="/signin">SignIn</a>
-      <a href="/hacks/new">Make hack</a>
+      <div class="tab-pane weekly-trend" id="weekly">
+        <div class="home-item-header">
+          <p>ヘッダー</p>
+        </div>
+        <% @weekly_hacks.each do |weekly_hack|%>
+          <%= render partial: 'hacks/content', locals: {hack: weekly_hack} %>
+        <%end%>
+      </div>
+      <div class="tab-pane monthly-trend" id="monthly">
+        <div class="home-item-header">
+          <p>ヘッダー</p>
+        </div>
+        <% @monthly_hacks.each do |monthly_hack|%>
+          <%= render partial: 'hacks/content', locals: {hack: monthly_hack} %>
+        <%end%>
+      </div>
+    </div>
+
+      
+      
   </div>
 
   <div class="right-col col-md-3">
+  右からむ
     <a href="/">TopPage</a>
   </div>
 </div>

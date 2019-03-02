@@ -13,7 +13,6 @@
  *= require_tree .
  *= require jquery.tagit
  *= require tagit.ui-zendesk
- *= require font-awesome
  *= require_self
  *= require custom
  */

@@ -9,7 +9,9 @@
           </div>
         </li>
         <%# ヘッダーの検索エンジン%>
-        <li class="nav-list pc-search"><%= text_field_tag :search, params[:search],  class: 'form-control font-awesome fa', placeholder: "\uF002 Search or jump to.." %></li>
+        <li class="nav-list pc-search">
+          <%= render 'shared/search' %>
+        </li>
         <li class="nav-list sp-search">
           <div data-toggle="modal" data-target="#searchModal" type="button">
             <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
@@ -20,8 +22,8 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li class="nav-icon"><%= link_to "", "#", class: 'fa fa-bell fa-lg nav-content' %></li>
-          <li class="nav-icon"><%= link_to "", new_hack_path, class: 'fa fa-pencil fa-lg nav-content' %></li>
+          <li class="nav-icon"><%= link_to "", "#", class: 'fas fa-bell fa-lg nav-content' %></li>
+          <li class="nav-icon"><%= link_to "", new_hack_path, class: 'fas fa-pen fa-lg nav-content' %></li>
           <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
             <span class="nav-category dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
@@ -37,7 +39,7 @@
             </ul>
           </li>
         <% else %>
-          <li class="sp-nav"><%= link_to "", signup_path, class: 'fa fa-user-plus fa-lg nav-content' %></li>
+          <li class="sp-nav"><%= link_to "", signup_path, class: 'fas fa-user-plus fa-lg nav-content' %></li>
           <li class="sp-nav nav-last-content"><%= link_to "", signin_path, class: 'glyphicon glyphicon-log-in nav-content' %></li>
           <li class="pc-nav"><%= link_to "Sign Up", signup_path, class: 'nav-content' %></li>
           <li class="pc-nav nav-last-content"><%= link_to "Sign In", signin_path, class: 'nav-content' %></li>
@@ -88,7 +90,7 @@
         <h4 class="modal-title">Search</h4>
       </div>
       <div class="modal-body">
-        <%= text_field_tag :search, params[:search], class: 'form-control font-awesome fa', placeholder: "\uF002 Search or jump to.." %>
+        <%= render 'shared/search' %>
       </div>
       <div class="modal-footer">
         <div class="recommend">

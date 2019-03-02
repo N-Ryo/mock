@@ -1,11 +1,15 @@
 <div class="comment-feeling">
   <%if comment.feeling == 0%>
-    Moving!
+    <i class="fas fa-crown fa-lg"></i>
   <%elsif comment.feeling == 1%>
-    Surprized
+    <i class="far fa-clock fa-lg"></i>
   <%elsif comment.feeling == 2%>
-    Not so bad
+    <i class="far fa-flag fa-lg"></i>
   <%elsif comment.feeling == 3%>
-    Too bad
+    <i class="fas fa-book-dead fa-lg"></i>
+  <%elsif comment.feeling == 4%>
+    <i class="fas fa-baby fa-lg"></i>
+  <%elsif comment.feeling == 5%>
+    <i class="fas fa-code fa-lg"></i>
   <%end%>
 </div>

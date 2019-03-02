@@ -1,0 +1,22 @@
+<section class="hack-content">
+  <div class="category-icon"><span><%= hack.category.name %></span></div>
+  <div class="hack-text">
+    <div class="names">
+      <div class="category-name">
+        <%= hack.category.name %>
+      </div>
+      <div class="role-name">
+        -<%= hack.role.name %>-
+      </div>
+    </div>
+    <div class="tag-lists">
+      <% hack.tag_list.each do |tag| %>
+        <span class="tag-list"><%= tag %></span>
+      <% end %>
+    </div>
+    <div class="overview">
+      <%= hack.overview.truncate(100)%>
+    </div>
+      
+  </div>
+</section>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   post 'roles/create', to: 'roles#create'
 
   root   'static_pages#home'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
+  get '/search', to: "searchs#index"
 
   resources :users do
     member do

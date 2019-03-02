@@ -16,16 +16,20 @@
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.hidden_field :hack_id, value: @hack.id %>
     <p><%= current_user.name %>がコメントしようとしています</p>
-    <div class="field">
+    <div class="field comment-feeling">
       <%= form.label :feeling %>
-      <%= form.label "Moving!" %>
-      <%= form.radio_button :feeling, 3, {id: :@comment_feeling, checked: true} %>
-      <%= form.label "surprized" %>
-      <%= form.radio_button :feeling, 2, id: :@comment_feeling %>
-      <%= form.label "Not so bad" %>
+      <%= form.radio_button :feeling, 0, {id: :@comment_feeling, checked: true} %>
+        <i class="fas fa-crown fa-lg"></i>
       <%= form.radio_button :feeling, 1, id: :@comment_feeling %>
-      <%= form.label "Too Bad" %>
-      <%= form.radio_button :feeling, 0, id: :@comment_feeling %>
+        <i class="far fa-clock fa-lg"></i>
+      <%= form.radio_button :feeling, 2, id: :@comment_feeling %>
+        <i class="far fa-flag fa-lg"></i>
+      <%= form.radio_button :feeling, 3, id: :@comment_feeling %>
+        <i class="fas fa-book-dead fa-lg"></i>
+      <%= form.radio_button :feeling, 4, id: :@comment_feeling %>
+        <i class="fas fa-baby fa-lg"></i>
+      <%= form.radio_button :feeling, 5, id: :@comment_feeling %>
+        <i class="fas fa-code fa-lg"></i>
     </div>
 
     <div class="field">

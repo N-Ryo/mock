@@ -1,5 +1,7 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
 
 @mixin box_sizing {
@@ -177,66 +179,92 @@ footer{
   @include box_sizing;
 }
 
+//tag周り
+.tag-list{
+  background-color: #8aff7ce6;
+  position: relative;
+  margin: 0 5px;
+  padding: 0 3px;
+}
+.tag-list:after{
+  width: 0;
+  height: 0;
+  right: 100%;
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border: solid transparent;
+  border-color: transparent;
+  border-right-color: #8aff7ce6;
+  border-width: .6em;
+  top: 50%;
+  margin-top: -.6em;
+}
 
 // tagitの「No search results」を非表示に
 .ui-helper-hidden-accessible {
   display: none;
 }
+
+
 //bootstrapの補強
-
-.nav{
-  height: inherit;
-}
-
-.nav > li{
-  display: inline-block;
-  vertical-align: middle;
-}
 
 .nav-title{
   font-weight: 500;
   font-size: 200%;
 }
 
-.navbar-nav{
-  margin: 0 -15px;
+header, footer{
+  .nav{
+    height: inherit;
+  }
+
+  .nav > li{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+  .navbar-nav{
+    margin: 0 -15px;
+  }
+
+  .navbar-nav > li > a{
+    padding: 15px 5px;
+  }
+  //navbarの左右寄せ
+  .navbar-right{
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+    margin-right: 0;
+  }
+  .navbar-left{
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+  }
+
+  //pc-search検索窓のサイズ調整
+  .form-control{
+    padding: 4px 8px;
+    height: 30px;
+  }
+
+  .nav-last-content{
+    margin-right: 15px;
+  }
+
+  .nav-category{
+    margin: auto 0;
+    height: 20px;
+  }
+  .pc-search > input{
+    margin: auto 0;
+  }
 }
 
-.navbar-nav > li > a{
-  padding: 15px 5px;
-}
-
-//navbarの左右寄せ
-.navbar-right{
-  display: inline-block;
-  vertical-align: middle;
-  float: right;
-  margin-right: 0;
-}
-.navbar-left{
-  display: inline-block;
-  vertical-align: middle;
-  float: left;
-}
-
-//pc-search検索窓のサイズ調整
-.form-control{
-  padding: 4px 8px;
-  height: 30px;
-}
-
-.nav-last-content{
-  margin-right: 15px;
-}
-
-.nav-category{
-  margin: auto 0;
-  height: 20px;
-}
-.pc-search > input{
-  margin: auto 0;
-}
-
+//スマホレスポンシブのPC・タブレットサイズ用CSS
 @media (min-width: 768px){
   .container {
     width: 100%;
@@ -273,6 +301,33 @@ footer{
         width: 30%;
       }
     }
+  }
+
+}
+//タブレットレスポンシブのPCサイズ用CSS
+@media (min-width: 992px){
+  .home{
+    .pc-trend-nav{
+      display: block !important;
+    }
+    .sp-trend-nav{
+      display: none !important;
+    }
+  }
+}
+
+
+.nav-pills{
+  text-align: center;
+  li{
+    border-left: 5px solid #5FE748;
+    a{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  li.active > a{
+    background-color: #5FE748 !important;
   }
 }
 
@@ -358,11 +413,129 @@ footer{
   .center-col{
     background-color: #fff;
     height: 1000px;
+    margin: 0 15px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
     .home-item-header{
       padding-top: 16px;
       padding-left: 16px;
       padding-right: 16px;
-      border-bottom: solid 1px #e8e8e8;
+    }
+  }
+  .pc-trend-nav{
+    display: none;
+  }
+  .sp-trend-nav{
+    display: block;
+    li{
+      display: table-cell;
+      width: 1%;
+      padding: 0;
+    }
+    &.nav-tabs.nav-justified > li > a{
+      border-radius: 4px 4px 0 0;
+      border-bottom: 1px solid #ddd;  
+    }
+    &.nav-tabs.nav-justified > .active > a{
+      border-bottom: 0 !important;
+    }
+    &.nav-justified > li > a, .nav-tabs.nav-justified > li > a{
+      margin-bottom: 0 !important;
+    }
+  }
+  .tab-content > .active{
+    display: grid;
+  }
+}
+
+//hack-content
+.hack-content{
+  width: 90%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px auto;
+  padding: 0 20px;
+  border-bottom: #eee 1px solid;
+  .category-icon{
+    width: 70px;
+    height: 70px;
+
+    border: 1px solid #333;
+    span{
+      margin: auto;
+    }
+  }
+  .hack-text{
+    width: 80%;
+    .names{
+      display: inline-flex;
+      div{
+        margin-right: 5px;
+      }
     }
   }
 }
+
+//commnent
+
+.comment-feeling{
+  .fa-book-dead{
+    color: purple;
+  }
+  .fa-flag{
+    color: #5FE748;
+  }
+  .fa-crown{
+    color: rgba(240, 199, 15, 0.925);
+  }
+  .fa-code{
+    color: red;
+  }
+  .fa-baby{
+    color: palevioletred;
+  }
+  .fa-clock{
+    color: blue;
+  }
+}
+
+/*テスト
+.test{
+  display: block;
+  overflow: visible;
+}
+.top-left{
+  float: left;
+  position: relative;
+  border: red 1px solid;
+  width: 66%;
+  height: 50px;
+}
+.bottom-left{
+  position: absolute;
+  bottom: -210px;
+  left: 0;
+  border: blue 1px solid;
+  width: 50%;
+  height: 200px;
+}
+.top-right{
+  float: right;
+  position: relative;
+  border: purple 1px solid;
+  width: 33%;
+  height: 200px;
+}
+.bottom-right{
+  position: absolute;
+  bottom: -60px;
+  right: 0;
+  border: green 1px solid;
+  width: 200%;
+  height: 50px;
+}
+*/
