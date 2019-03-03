@@ -25,11 +25,6 @@
   </div>
 <% end %>
 <div class="home row">
-  <%if logged_in?%>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  <%end%>
   <div class="left-col col-md-2">
     <ul class="nav nav-pills nav-stacked pc-trend-nav">
       <li class="active"><a href="#daily" data-toggle="pill">Daily</a></li>
