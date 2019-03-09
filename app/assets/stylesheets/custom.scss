@@ -307,6 +307,9 @@ header, footer{
 //タブレットレスポンシブのPCサイズ用CSS
 @media (min-width: 992px){
   .home{
+    .center-col{
+      border-top: 1px solid #ddd;
+    }
     .pc-trend-nav{
       display: block !important;
     }

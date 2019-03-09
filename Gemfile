@@ -27,7 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass'
 
 gem 'font-awesome-sass', '~> 5.6.1'
-gem 'rmagick'
+gem 'rmagick', '~> 3.0'
 gem 'carrierwave'
 gem 'cloudinary'
 
