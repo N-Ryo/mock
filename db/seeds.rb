@@ -11,6 +11,7 @@ User.create!(name:  "Mock",
              password_confirmation: "higashikou2437",
              admin: true,
              activated: true,
+             level: 2,
              activated_at: Time.zone.now)
 
 categories = ["C","C++","C#","Ruby","RubyOnRails","Python","java","Python","Go","R","Elixir","GAS",
@@ -39,8 +40,11 @@ categories = ["C","C++","C#","Ruby","RubyOnRails","Python","java","Python","Go",
               #Qiita3ページ目途中
 categories.each {|category| Category.create!(name: category) }
 
-roles = ["MachineLearning","テスト","Deeplearning","IoT","SSH","api","Blockchain","セキュリティ","自然言語処理","正規表現","ネットワーク",
+roles = ["フォーム","MachineLearning","テスト","Deeplearning","IoT","SSH","api","Blockchain","セキュリティ","自然言語処理","正規表現","ネットワーク",
         "SSL","画像処理","環境構築","スクレイピング","開発効率化","高速化"
 
         ]
 roles.each {|role| Role.create!(name: role) }
+Hack.create!(category_id: 5, role_id: 1, overview: "URL、スコープ、モデルの組み合わせを元にformタグを作成します。")
+Comment.create!(feeling: 0, content: "モデルにインスタンス変数を指定するだけで、からならcreate,値をモデルから呼び出しているならupdateメソッドを呼び出してくれる",
+                user_id: 1, hack_id: 1)

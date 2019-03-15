@@ -34,7 +34,7 @@
 
     <div class="field">
       <%= form.label "コメント" %>
-      <%= form.text_area :content, id: :@comment_content, placeholder: "あなたの感動したタイミングを共有しましょう！" %>
+      <%= form.text_area :content, required: true, id: :@comment_content, placeholder: "あなたの感動したタイミングを共有しましょう！" %>
     </div>
 
 
@@ -44,5 +44,5 @@
     </div>
 <% end %>
 <%else%>
-  <p>ログインしようぜ</p>
+  <%= link_to 'ログインしようぜ', new_user_path %>
 <%end%>

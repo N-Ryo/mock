@@ -11,7 +11,7 @@ class HacksController < ApplicationController
   # GET /hacks/1.json
   def show
     @comment = Comment.new
-    @comments ||= Comment.all
+    @comments = Comment.where("hack_id = ?", @hack.id)
     @user ||= current_user
   end
 

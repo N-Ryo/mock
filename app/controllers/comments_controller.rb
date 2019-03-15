@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to hack_path(comment_params[:hack_id]), notice: 'Comment was successfully created.' }
+        format.html { redirect_to hack_path(comment_params[:hack_id]), notice: 'コメントしました。' }
         format.js
       else
-        format.html { render "hacks/show" }
+        format.html { redirect_to "/hacks/#{params[:hack_id]}" }
         format.js
       end
     end
