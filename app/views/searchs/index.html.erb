@@ -1,2 +1,22 @@
-<h1>Searchs#index</h1>
-<p>Find me in app/views/searchs/index.html.erb</p>
+<div class="search">
+  <% unless @category_hacks.blank? %>
+    <h2>Category</h2>
+    <div class="search-results">
+      <% @category_hacks.each do |hack|%>
+        <section>
+          <%= render partial: 'hacks/content', locals: {hack: hack} %>
+        </section>
+      <% end %>
+    </div>
+  <% end %>
+  <% unless @role_hacks.blank? %>
+    <h2>Role</h2>
+    <div class="search-results">
+      <% @role_hacks.each do |hack|%>
+        <section>
+          <%= render partial: 'hacks/content', locals: {hack: hack} %>
+        </section>
+      <% end %>
+    </div>
+  <% end %>
+</div>

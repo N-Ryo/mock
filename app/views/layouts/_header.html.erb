@@ -24,7 +24,6 @@
         <% if logged_in? %>
           <li class="nav-icon"><%= link_to "", "#", class: 'fas fa-bell fa-lg nav-content' %></li>
           <li class="nav-icon"><%= link_to "", new_hack_path, class: 'fas fa-pen fa-lg nav-content' %></li>
-          <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
             <span class="nav-category dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
               Account <b class="caret"></b>
@@ -58,22 +57,28 @@
         <h4 class="modal-title">Category</h4>
       </div>
       <div class="modal-body">
-        <ul><p class="modal-category">Category</p>
-          <div class="borderLine">
-            <% category_list.each do |category|%>
-              <li><%=category.name%></li>
-            <%end%>
-          </div>
-        </ul>
-      </div>
-      <div class="modal-body">
-        <ul><p class="modal-category">Role</p>
-          <div class="borderLine">
-            <% role_list.each do |role|%>
-              <li><%=role.name%></li>
-            <%end%>
-          </div>
-        </ul>
+        <div class="modal-category">
+          <ul><p class="modal-name">Category</p>
+            <div class="borderLine">
+              <% category_list.each do |category|%>
+                <% unless category.hacks.blank? %> 
+                  <li class="modal-list"><%= link_to category.name, search_path(key_word: category.name) %></li>
+                <% end %>
+              <%end%>
+            </div>
+          </ul>
+        </div>
+        <div class="modal-role">
+          <ul><p class="modal-name">Role</p>
+            <div class="borderLine">
+              <% role_list.each do |role|%>
+                <% unless role.hacks.blank? %> 
+                  <li class="modal-list"><%= link_to role.name, search_path(key_word: role.name) %></li>
+                <% end %>
+              <%end%>
+            </div>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
