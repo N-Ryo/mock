@@ -1,3 +1,4 @@
+<%= link_to(hack) do  %>
 <section class="hack-content">
   <div class="category-icon"><span><%= hack.category.name %></span></div>
   <div class="hack-text">
@@ -17,6 +18,6 @@
     <div class="overview">
       <%= hack.overview.truncate(100)%>
     </div>
-      
   </div>
 </section>
+<% end %>

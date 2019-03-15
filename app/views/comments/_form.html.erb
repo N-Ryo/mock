@@ -18,23 +18,23 @@
     <p><%= current_user.name %>がコメントしようとしています</p>
     <div class="field comment-feeling">
       <%= form.label :feeling %>
-      <%= form.radio_button :feeling, 0, {id: :@comment_feeling, checked: true} %>
-        <i class="fas fa-crown fa-lg"></i>
-      <%= form.radio_button :feeling, 1, id: :@comment_feeling %>
-        <i class="far fa-clock fa-lg"></i>
-      <%= form.radio_button :feeling, 2, id: :@comment_feeling %>
-        <i class="far fa-flag fa-lg"></i>
-      <%= form.radio_button :feeling, 3, id: :@comment_feeling %>
-        <i class="fas fa-book-dead fa-lg"></i>
-      <%= form.radio_button :feeling, 4, id: :@comment_feeling %>
-        <i class="fas fa-baby fa-lg"></i>
-      <%= form.radio_button :feeling, 5, id: :@comment_feeling %>
-        <i class="fas fa-code fa-lg"></i>
+      <%= form.radio_button :feeling, 0, {id: "crown", checked: true} %>
+        <label for="crown"><i class="fas fa-crown fa-lg"></i></label>
+      <%= form.radio_button :feeling, 1, id: "clock" %>
+        <label for="clock"><i class="far fa-clock fa-lg"></i></label>
+      <%= form.radio_button :feeling, 2, id: "flag" %>
+        <label for="flag"><i class="far fa-flag fa-lg"></i></label>
+      <%= form.radio_button :feeling, 3, id: "dead-book" %>
+        <label for="dead-book"><i class="fas fa-book-dead fa-lg"></i></label>
+      <%= form.radio_button :feeling, 4, id: "baby" %>
+        <label for="baby"><i class="fas fa-baby fa-lg"></i></label>
+      <%= form.radio_button :feeling, 5, id: "code" %>
+        <label for="code"><i class="fas fa-code fa-lg"></i></label>
     </div>
 
     <div class="field">
-      <%= form.label :content %>
-      <%= form.text_field :content, id: :@comment_content %>
+      <%= form.label "コメント" %>
+      <%= form.text_area :content, id: :@comment_content, placeholder: "あなたの感動したタイミングを共有しましょう！" %>
     </div>
 
 

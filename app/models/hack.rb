@@ -1,5 +1,5 @@
 class Hack < ApplicationRecord
-  validates :overview, presence: true, length: { maximum: 150 }
+  
   has_many :comments
   accepts_nested_attributes_for :comments
 
@@ -10,5 +10,7 @@ class Hack < ApplicationRecord
   belongs_to :category
   
   acts_as_taggable
-  
+  validates :overview, presence: true, length: { maximum: 150 }
+  validates :category, presence: true
+  validates :role, presence: true
 end
