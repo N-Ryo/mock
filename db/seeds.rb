@@ -11,7 +11,7 @@ User.create!(name:  "Mock",
              password_confirmation: "higashikou2437",
              admin: true,
              activated: true,
-             level: 2,
+             proficiency: 2,
              activated_at: Time.zone.now)
 
 categories = ["C","C++","C#","Ruby","RubyOnRails","Python","java","Python","Go","R","Elixir","GAS",

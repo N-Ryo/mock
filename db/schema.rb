@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20190315083842) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false, null: false
@@ -85,7 +84,7 @@ ActiveRecord::Schema.define(version: 20190315083842) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.integer "level"
+    t.integer "proficiency"
   end
 
   create_table "users_relationships", force: :cascade do |t|

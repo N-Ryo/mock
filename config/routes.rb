@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  patch '/hacks/:id', to: 'hacks#update'
   resources :hacks, only: [:index, :show, :new, :create, :destroy] do 
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end

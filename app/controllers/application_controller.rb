@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   helper_method :category_list, :role_list
 
   def category_list
-    @category_list = Category.all   
+    @category_list = Category.includes(:hacks).all   
   end
 
   def role_list
-    @role_list = Role.all
+    @role_list = Role.includes(:hacks).all
   end
 
   private

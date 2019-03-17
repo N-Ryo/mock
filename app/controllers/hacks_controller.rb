@@ -1,5 +1,5 @@
 class HacksController < ApplicationController
-  before_action :set_hack, only: [:show, :edit, :update, :destroy]
+  before_action :set_hack, only: [:show, :edit, :update, :destroy, :add]
 
   # GET /hacks
   # GET /hacks.json
@@ -62,6 +62,14 @@ class HacksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to hacks_url, notice: 'Hack was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def add
+    @hack.update_attribute(:tag_list, hack_params)
+    respond_to do |format|
+      format.html { redirect_to hacks_url, notice: 'Hack was successfully destroyed.' }
+      format.js { head :no_content }
     end
   end
 
