@@ -12,7 +12,6 @@ class HacksController < ApplicationController
   def show
     @comment = Comment.new
     @comments = Comment.where("hack_id = ?", @hack.id)
-    @user ||= current_user
   end
 
   # GET /hacks/new
@@ -33,10 +32,8 @@ class HacksController < ApplicationController
     respond_to do |format|
       if @hack.save
         format.html { redirect_to @hack, notice: 'Hack was successfully created.' }
-        format.json { render :show, status: :created, location: @hack }
       else
         format.html { render :new }
-        format.json { render json: @hack.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,11 +43,11 @@ class HacksController < ApplicationController
   def update
     respond_to do |format|
       if @hack.update(hack_params)
-        format.html { redirect_to @hack, notice: 'Hack was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hack }
+        format.html { redirect_to @hack }
+        # format.js
       else
         format.html { render :edit }
-        format.json { render json: @hack.errors, status: :unprocessable_entity }
+        # format.js
       end
     end
   end
@@ -60,16 +57,8 @@ class HacksController < ApplicationController
   def destroy
     @hack.destroy
     respond_to do |format|
-      format.html { redirect_to hacks_url, notice: 'Hack was successfully destroyed.' }
+      format.html { redirect_to hacks_url }
       format.json { head :no_content }
-    end
-  end
-
-  def add
-    @hack.update_attribute(:tag_list, hack_params)
-    respond_to do |format|
-      format.html { redirect_to hacks_url, notice: 'Hack was successfully destroyed.' }
-      format.js { head :no_content }
     end
   end
 

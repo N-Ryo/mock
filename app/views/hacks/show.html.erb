@@ -8,16 +8,22 @@
   <%= @hack.role.name %>
 </p>
 
-<%= form_with model: @hack do |form| %>
-  <div class="field form-group">
-    <strong>Tag_list:</strong>
+<strong>Tag_list:</strong>
+<label for="#tag-add-btn" id="tag-label">
+  <object id="tag_lists">
     <% @hack.tag_list.each do |tag| %>
-      <span class="label label-primary"><%= tag %></span>
+      <span class="label label-primary tag_lists"><%= tag %></span>
     <% end %>
+  </object>
+  <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#tag-add" id="tag-add-btn">＋</button>
+</label>
+<div class="field form-group　tag-add collapse" id="tag-add">
+  <%= form_with model: @hack do |form| %>
     <% form.label :hack, :tag_list %>
-    <ul id="hack-tags"></ul>
-  </div>
-<% end %>
+    <ul id="hack-tags"></ul>  
+  <% end %>
+</div>
+
 <p>
   <strong>Overview:</strong>
   <%= @hack.overview %>

@@ -19,17 +19,23 @@
     <div class="field comment-feeling">
       <%= form.label :feeling %>
       <%= form.radio_button :feeling, 0, {id: "crown", checked: true} %>
-        <label for="crown"><i class="fas fa-crown fa-lg"></i></label>
+        <label for="crown" class="feeling"><i class="fas fa-crown fa-lg"></i></label>
+        <div class="feeling-explanation">便利でめっちゃ使う</div>
       <%= form.radio_button :feeling, 1, id: "clock" %>
-        <label for="clock"><i class="far fa-clock fa-lg"></i></label>
+        <label for="clock" class="feeling"><i class="far fa-clock fa-lg"></i></label>
+        <div class="feeling-explanation">めっちゃ悩んでたのが解決した</div>
       <%= form.radio_button :feeling, 2, id: "flag" %>
-        <label for="flag"><i class="far fa-flag fa-lg"></i></label>
+        <label for="flag" class="feeling"><i class="far fa-flag fa-lg"></i></label>
+        <div class="feeling-explanation">地味に便利</div>
       <%= form.radio_button :feeling, 3, id: "dead-book" %>
-        <label for="dead-book"><i class="fas fa-book-dead fa-lg"></i></label>
+        <label for="dead-book" class="feeling"><i class="fas fa-book-dead fa-lg"></i></label>
+        <div class="feeling-explanation">難易度高め</div>
       <%= form.radio_button :feeling, 4, id: "baby" %>
-        <label for="baby"><i class="fas fa-baby fa-lg"></i></label>
+        <label for="baby" class="feeling"><i class="fas fa-baby fa-lg"></i></label>
+        <div class="feeling-explanation">早く知りたかった</div>
       <%= form.radio_button :feeling, 5, id: "code" %>
-        <label for="code"><i class="fas fa-code fa-lg"></i></label>
+        <label for="code" class="feeling"><i class="fas fa-code fa-lg"></i></label>
+        <div class="feeling-explanation">基礎（必須）</div>
     </div>
 
     <div class="field">

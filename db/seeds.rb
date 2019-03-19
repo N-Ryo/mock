@@ -46,5 +46,5 @@ roles = ["フォーム","MachineLearning","テスト","Deeplearning","IoT","SSH"
         ]
 roles.each {|role| Role.create!(name: role) }
 Hack.create!(category_id: 5, role_id: 1, overview: "URL、スコープ、モデルの組み合わせを元にformタグを作成します。")
-Comment.create!(feeling: 0, content: "モデルにインスタンス変数を指定するだけで、からならcreate,値をモデルから呼び出しているならupdateメソッドを呼び出してくれる",
+Comment.create!(feeling: 0, content: "モデルにインスタンス変数を指定するだけで、空ならcreate,値をモデルから呼び出しているならupdateメソッドを呼び出してくれる",
                 user_id: 1, hack_id: 1)

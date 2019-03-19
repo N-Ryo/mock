@@ -488,6 +488,7 @@ header, footer{
 //commnent
 
 .comment-feeling{
+  position: relative;
   .fa-book-dead{
     color: purple;
   }
@@ -508,6 +509,18 @@ header, footer{
   }
 }
 
+.feeling{
+  &:hover + .feeling-explanation{
+    display: block;
+  }
+}
+.feeling-explanation{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 80%;
+  display: none;
+}
 //search
 
 .search{
