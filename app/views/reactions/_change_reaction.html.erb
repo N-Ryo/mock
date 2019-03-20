@@ -1,0 +1,9 @@
+<%= comment.reactions.find_by(user_id: current_user.id).evaluation %>
+<%5.times do |i| %>
+  <%= form_with model: reaction = current_user.reactions.find_by(comment_id: comment.id) do |f| %>    
+    <div class="reaction<%= i + 1 %>">
+      <%= hidden_field_tag :evaluation, (i+1) %>
+      <%= f.submit  "★" * (i + 1), name: nil %>
+    </div>
+  <%end%>
+<% end %>

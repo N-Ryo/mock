@@ -1,0 +1,7 @@
+<% 5.times do |i| %>
+  <%= form_with model: current_user.reactions.build do |f| %>
+    <%= hidden_field_tag :comment_id, comment.id %>
+    <%= hidden_field_tag :evaluation, (i+1) %>
+    <%= f.submit "★" * (i + 1) , class: "btn btn-primary", name: nil %>
+  <% end %>
+<% end %>

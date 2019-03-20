@@ -11,7 +11,7 @@ class HacksController < ApplicationController
   # GET /hacks/1.json
   def show
     @comment = Comment.new
-    @comments = Comment.where("hack_id = ?", @hack.id)
+    @comments = Comment.where("hack_id = ?", @hack.id).order(point: :desc)
   end
 
   # GET /hacks/new

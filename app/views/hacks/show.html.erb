@@ -8,6 +8,11 @@
   <%= @hack.role.name %>
 </p>
 
+<p>
+  <strong>Point:</strong>
+  <%= @hack.point %>
+</p>
+
 <strong>Tag_list:</strong>
 <label for="#tag-add-btn" id="tag-label">
   <object id="tag_lists">
@@ -31,10 +36,22 @@
 
 <% @comments.each do |comment|%>
   <%= render 'comments/feeling', {comment: comment}%>
+  <%= comment.reactions.count %>レビュー
+  <%= comment.point %>ポイント
   <p>
     <%=comment.content%><br>
     <%=comment.created_at%>
   </p>
+  
+  <% if current_user %>
+    <div id="reaction_form">
+    <% unless current_user.reaction?(comment.id) %>
+      <%= render 'reactions/first_reaction', {comment: comment} %>
+    <% else %>
+      <%= render 'reactions/change_reaction', {comment: comment} %>
+    <% end %>
+    </div>
+  <% end %>
 <% end %>
 
 <p><%= @comments.count %>コメント</p>

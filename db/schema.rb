@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190315083842) do
+ActiveRecord::Schema.define(version: 20190319012523) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20190315083842) do
   create_table "comments", force: :cascade do |t|
     t.integer "feeling"
     t.string "content"
+    t.integer "point", default: 0
     t.integer "user_id"
     t.integer "hack_id"
     t.datetime "created_at", null: false
@@ -34,10 +35,21 @@ ActiveRecord::Schema.define(version: 20190315083842) do
     t.text "overview"
     t.integer "category_id"
     t.integer "role_id"
+    t.integer "point", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_hacks_on_category_id"
     t.index ["role_id"], name: "index_hacks_on_role_id"
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.integer "comment_id"
+    t.integer "user_id"
+    t.integer "evaluation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_reactions_on_comment_id"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :comments
-
+  has_many :reactions, foreign_key: "user_id"
+  has_many :comments, through: :reactions
   has_many :active_relationships, class_name:  "UsersRelationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -99,6 +100,21 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  # コメントにリアクションする
+  def first_reaction(comment_id, evaluation)
+    reactions.create!(user_id: self.id, comment_id: comment_id, evaluation: evaluation)
+  end
+
+  # コメントに再度リアクションする
+  # def change_reaction(evaluation)
+  #   reactions.find_by(comment_id: comment.id).update_attribute(evaluation: evaluation)
+  # end
+
+  # 現在のユーザーが該当のコメントにリアクションしていたらtrueを返す
+  def reaction?(comment_id)
+    reactions.find_by(comment_id: comment_id)
   end
 
   private
