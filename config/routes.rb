@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   post 'roles/create', to: 'roles#create'
 
   root   'static_pages#home'
@@ -11,9 +12,9 @@ Rails.application.routes.draw do
   get '/search', to: "searchs#index"
 
   resources :users do
-    member do
-      get :following, :followers
-    end
+    # member do
+    #   get :following, :followers
+    # end
   end
   patch '/hacks/:id', to: 'hacks#update'
   resources :hacks, only: [:index, :show, :new, :create, :destroy] do 
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :relationships,       only: [:create, :destroy]
+  resources :user_relationships,       only: [:create, :destroy]
+  resources :user_category_relationships, only: [:create, :destroy]
   resources :reactions,       only: [:create, :update]
 end

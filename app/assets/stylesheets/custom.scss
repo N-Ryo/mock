@@ -30,6 +30,11 @@ input:-ms-input-placeholder {
   font-size: 10px;
 }
 
+object{
+  height: 35px;
+  vertical-align: middle;
+}
+
 .navbar{
   background-color: #5FE748;
   li, a{
@@ -122,11 +127,17 @@ input:-ms-input-placeholder {
   top: 35px;
 }
 
-
+// Sign Up
+.new-h1{
+  margin-left: 30px;
+  margin-top: 20px;
+  .new-title{
+    background-color: #5FE748;
+    padding: 0 5px;
+  }
+}
 
 //form
-
-
 #error_explanation {
   color: red;
   ul {

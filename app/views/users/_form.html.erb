@@ -20,7 +20,12 @@
     <%= form.label :password_confirmation %>
     <%= form.text_field :password_confirmation, id: :user_password_confirmation %>
   </div>
-  >
+
+  <div class="field">
+    <%= form.label :proficiency %>
+    <%= form.text_field :proficiency, id: :user_proficiency %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

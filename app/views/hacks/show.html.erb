@@ -1,6 +1,8 @@
 <p>
   <strong>Category:</strong>
   <%= @hack.category.name %>
+  <span id="cfollowers">★<%= @hack.category.users.count %></span>
+  <%= render 'follow_form', hack: @hack %>
 </p>
 
 <p>

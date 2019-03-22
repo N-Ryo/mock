@@ -1,0 +1,7 @@
+<div id="cfollow_form">
+  <% if current_user.category_following?(hack.category) %>
+    <%= render 'unfollow', hack: hack %>
+  <% else %>
+    <%= render 'follow', hack: hack %>
+  <% end %>
+</div>

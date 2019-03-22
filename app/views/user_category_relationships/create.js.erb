@@ -1,0 +1,2 @@
+$("#cfollow_form").html("<%= escape_javascript(render('hacks/unfollow', hack: @hack)) %>");
+$("#cfollowers").html('<%= @hack.category.users.count %>');

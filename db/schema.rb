@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190319012523) do
+ActiveRecord::Schema.define(version: 20190322033838) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20190319012523) do
     t.index ["hack_id"], name: "index_comments_on_hack_id"
     t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "discussions", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "comment_id"
+    t.integer "discussion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_discussions_on_comment_id"
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "hacks", force: :cascade do |t|
@@ -83,6 +94,25 @@ ActiveRecord::Schema.define(version: 20190319012523) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "user_category_relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_user_category_relationships_on_category_id"
+    t.index ["user_id"], name: "index_user_category_relationships_on_user_id"
+  end
+
+  create_table "user_relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_user_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_user_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_user_relationships_on_follower_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -97,16 +127,6 @@ ActiveRecord::Schema.define(version: 20190319012523) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.integer "proficiency"
-  end
-
-  create_table "users_relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["followed_id"], name: "index_users_relationships_on_followed_id"
-    t.index ["follower_id", "followed_id"], name: "index_users_relationships_on_follower_id_and_followed_id", unique: true
-    t.index ["follower_id"], name: "index_users_relationships_on_follower_id"
   end
 
 end

@@ -4,6 +4,19 @@
 
 <h1>My Page</h1>
 
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>
+<% unless current_user?(@user) %>
+  <div id="follow_form">
+  <% if current_user.following?(@user) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>

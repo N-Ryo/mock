@@ -1,0 +1,4 @@
+<%= form_with model: current_user.user_category_relationships.find_by(category_id: hack.category_id), method: :delete  do |f| %>
+<div><%= hidden_field_tag :hack_id, hack.id %></div>
+  <%= f.submit "Unfollow", class: "btn" %>
+<% end %>
