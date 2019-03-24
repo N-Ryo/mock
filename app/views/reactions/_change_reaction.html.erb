@@ -5,9 +5,10 @@
     <span>★ </span>
   <% end %>
 </span>
-<% 5.times do |i| %>
-  <%= form_with model: reaction, class: "reaction#{i + 1}", html: {style: "z-index: #{100-i};"} do |f| %>    
-      <%= hidden_field_tag :evaluation, (i+1) %>
-      <%= button_tag "★ " * (i + 1), type: 'submit', name: nil, class: "reaction-button", style: "opacity: 0;" %>
-  <%end%>
-<% end %>
+<%= render 'reactions/stars', reaction: reaction %>
+<%# 5.times do |i| %>
+  <%#= form_with model: reaction, class: "reaction#{i + 1}", html: {style: "z-index: #{100-i};"} do |f| %>    
+      <%#= hidden_field_tag :evaluation, (i+1) %>
+      <%#= button_tag "★ " * (i + 1), type: 'submit', name: nil, class: "reaction-button", style: "opacity: 0;" %>
+  <%#end%>
+<%# end %>

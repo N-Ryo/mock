@@ -1,1 +1,3 @@
-document.getElementById("evaluation-stars<%= @reaction.id %>").innerHTML = "<%= "★ " * @reaction.evaluation %>"
+document.getElementById("evaluation-stars<%= @reaction.id %>").innerHTML = "<%= "★ " * @reaction.evaluation %>";
+$("#commentary-stats<%= @comment.id %>").html("<%= escape_javascript(render('comments/commentary_stats', comment: @comment)) %>");
+document.getElementById("hack-point").innerHTML = "<%= @hack.point %>";
