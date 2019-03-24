@@ -1,10 +1,9 @@
 <% reaction = current_user.reactions.build %>
+<span class="empty-stars">☆ ☆ ☆ ☆ ☆</span>
 <% 5.times do |i| %>
-  <%= form_with model: reaction, class: "reaction#{i + 1}" do |f| %>
+  <%= form_with model: reaction, class: "reaction#{i + 1}", html: {style: "z-index: #{100-i};"} do |f| %>
     <%= hidden_field_tag :comment_id, comment.id %>
     <%= hidden_field_tag :evaluation, (i+1) %>
-    <%= button_tag class: "btn", type: 'submit', name: nil do %>
-          <span>☆</span>
-        <% end %>
-  <% end %>
+    <%= button_tag "★ " * (i + 1), type: 'submit', name: nil, class: "reaction-button", style: "opacity: 0;" %>
+  <%end%>
 <% end %>

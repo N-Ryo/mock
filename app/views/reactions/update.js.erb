@@ -1,1 +1,1 @@
-$("#reaction_form").html("<%= escape_javascript(render('change_reaction', comment: @comment)) %>");
+document.getElementById("evaluation-stars<%= @reaction.id %>").innerHTML = "<%= "★ " * @reaction.evaluation %>"

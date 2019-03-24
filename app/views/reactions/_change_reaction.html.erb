@@ -1,6 +1,6 @@
 <% reaction = current_user.reactions.find_by(comment_id: comment.id) %>
 <span class="empty-stars">☆ ☆ ☆ ☆ ☆</span>
-<span class="evaluation-stars">
+<span class="evaluation-stars" id="evaluation-stars<%= reaction.id %>">
   <% reaction.evaluation.times do |i|%>
     <span>★ </span>
   <% end %>
