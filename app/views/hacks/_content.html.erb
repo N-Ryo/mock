@@ -14,11 +14,13 @@
       <div><%= point %>ポイント増量中！</div>
     <% rescue %>
     <% end %>
-    <div class="tag-lists">
-      <% hack.tag_list.each do |tag| %>
-        <span class="tag-list"><%= tag %></span>
-      <% end %>
-    </div>
+    <label>
+      <div class="tag-lists">
+        <% hack.tag_list.each do |tag| %>
+          <span class="tag-list"><%= tag %></span>
+        <% end %>
+      </div>
+    </label>
     <div class="overview">
       <%= hack.overview.truncate(100)%>
     </div>

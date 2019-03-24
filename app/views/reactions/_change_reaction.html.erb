@@ -1,9 +1,13 @@
-<%= comment.reactions.find_by(user_id: current_user.id).evaluation %>
-<%5.times do |i| %>
-  <%= form_with model: reaction = current_user.reactions.find_by(comment_id: comment.id) do |f| %>    
-    <div class="reaction<%= i + 1 %>">
+<% reaction = current_user.reactions.find_by(comment_id: comment.id) %>
+<span class="empty-stars">☆ ☆ ☆ ☆ ☆</span>
+<span class="evaluation-stars">
+  <% reaction.evaluation.times do |i|%>
+    <span>★ </span>
+  <% end %>
+</span>
+<% 5.times do |i| %>
+  <%= form_with model: reaction, class: "reaction#{i + 1}", html: {style: "z-index: #{100-i};"} do |f| %>    
       <%= hidden_field_tag :evaluation, (i+1) %>
-      <%= f.submit  "★" * (i + 1), name: nil %>
-    </div>
+      <%= button_tag "★ " * (i + 1), type: 'submit', name: nil, class: "reaction-button", style: "opacity: 0;" %>
   <%end%>
 <% end %>

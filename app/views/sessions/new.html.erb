@@ -1,7 +1,26 @@
-<h1>Sign In</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-   <%= render 'form'%>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mock</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= render 'layouts/rails_default' %>
+  </head>
+  <body>
+    <div class="new-body">
+      <%= link_to root_path, class: "new-top-title" do %>
+        <h1 class="new-h1"><span class="new-title">mock</span></h1>
+      <% end %>
+      <div class="container form-container">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1">
+            <h2 class="sign-message">サインイン</h2>
+            <p class="sign-message">新規登録は<%= link_to "こちら", signup_path %>から</p>
+            <hr>
+            <%= render 'form'%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
+</html>

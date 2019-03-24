@@ -32,7 +32,6 @@ input:-ms-input-placeholder {
 
 object{
   height: 35px;
-  vertical-align: middle;
 }
 
 .navbar{
@@ -128,13 +127,37 @@ object{
 }
 
 // Sign Up
-.new-h1{
-  margin-left: 30px;
-  margin-top: 20px;
-  .new-title{
-    background-color: #5FE748;
-    padding: 0 5px;
+.new-body{
+  margin: 10px auto;
+  padding: 5px 0 50px 0;
+  width: 95%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 3px 5px 15px 1px rgba(0, 0, 0, 0.2);
+}
+.new-top-title{
+  &:hover{
+    text-decoration: none;
   }
+  .new-h1{
+    margin-left: 30px;
+    .new-title{
+      color: #333;
+      background-color: #5FE748;
+      border-radius: 20px;
+      padding: 0 10px 5px 10px;
+    }
+  }
+}
+
+.form-container{
+  margin: 3vw 0;
+
+}
+
+// Rememberチェックボックスの位置調整
+.checkbox input[type="checkbox"]{
+  margin-left: 0;
 }
 
 //form
@@ -153,6 +176,9 @@ object{
   }
 }
 
+.sign-message{
+  text-align: center;
+}
 
 .checkbox {
   margin-top: 10px;
@@ -195,11 +221,15 @@ footer{
 }
 
 //tag周り
+.tag-lists{
+  height: 19px;
+}
 .tag-list{
   background-color: #8aff7ce6;
   position: relative;
-  margin: 0 5px;
-  padding: 0 3px;
+  margin: 0 5px 0 10px;
+  padding: 0 10px 0 5px;
+  color: #555;
 }
 .tag-list:after{
   width: 0;
@@ -215,7 +245,6 @@ footer{
   top: 50%;
   margin-top: -.6em;
 }
-
 // tagitの「No search results」を非表示に
 .ui-helper-hidden-accessible {
   display: none;
@@ -317,6 +346,12 @@ header, footer{
       }
     }
   }
+  .new-top-title{
+  position: relative;
+  .new-h1{
+    position: absolute;
+  }
+}
 
 }
 //タブレットレスポンシブのPCサイズ用CSS
@@ -373,15 +408,7 @@ header, footer{
   }
   .welcome-sign{
     display: none;
-  }
-
-  .checkbox input[type="checkbox"]{
-    margin-left: 0;
-  }
-  
-  .checkbox span{
-    margin-left: 25px;
-  }
+  }  
   
   .top-btn{
     background-color: rgba($color: #fff, $alpha: 0);
@@ -418,11 +445,14 @@ header, footer{
   }
   
   .tab-pane{
-    padding: 10px;
+    padding: 15px 0;
     border: 2px solid #fff;
     border-top: none;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    a{
+      font-size: 12px;
+    }
   }
   
 }
@@ -495,9 +525,27 @@ header, footer{
     }
   }
 }
+// users
 
-//commnent
+.user-cog{
+  padding-top: 5px;
+  color: #555;
+  text-decoration: none;
+  a{
+    color: inherit;
+  }
+}
 
+// commnent
+.commentary-message{
+  padding-left: 15px;
+  color: #888;
+}
+.comment-content{
+  margin: 20px 0;
+  padding-left: 12px;
+  border-left: #5FE748 4px solid;
+}
 .comment-feeling{
   position: relative;
   .fa-book-dead{
@@ -545,7 +593,72 @@ header, footer{
     margin: 0 auto 30px auto; 
   }
 }
+// hack show
+.user-show-top{
+  text-align: center;
+}
+.hack-title{
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0;
+}
+.hack-role{
+  display: inline-block;
+  padding-left: 1vw;
+  vertical-align: bottom;
+  margin-top: 0;
+}
+.user-stats{
+  background-color: #fff;
+  padding-bottom: 20px; 
+}
+.hack-overview{
+  padding: 5px 3vw;
+}
+.inline-block{
+  display: inline-block;
+}
+// hack follow
+.cfollow_form{
+  vertical-align: middle;
+  display: inline;
+  color: #fff;
+  padding-left: 20px;
+  form{
+    display: inherit;
+    div{
+      display: inherit;
+    }
+    .category-follow{
+      background-color: #5FE748;
+    }
+    .category-unfollow{
+      background-color: #3f9200;
+    }
+  }
+}
 
+// Reaction form
+.reaction-form{
+  position: relative;
+  height: 1.4em;
+  .reaction-button, .empty-stars, .evaluation-stars{
+    font-size: 16px;
+  }
+  form{
+    display: inline;
+    button{
+      padding: 0;
+      border: none;
+    }
+  }
+}
+
+form[class^="reaction"], .empty-stars, .evaluation-stars{
+  color: #f3972e;
+  position: absolute;
+  vertical-align: middle;
+}
 /*テスト
 .test{
   display: block;

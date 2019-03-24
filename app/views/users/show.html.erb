@@ -1,39 +1,84 @@
 
-<% provide(:title, @user.name) %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <h1>My Page</h1>
 
+      <h2>
+        <strong>
+          <%= @user.name %>
+        </strong>
+      </h2>
 
-<h1>My Page</h1>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <% unless current_user?(@user) %>
+        <div id="follow_form">
+        <% if current_user.following?(@user) %>
+          <%= render 'unfollow' %>
+        <% else %>
+          <%= render 'follow' %>
+        <% end %>
+        </div>
+      <% end %>
 
-<section class="stats">
-  <%= render 'shared/stats' %>
-</section>
-<% unless current_user?(@user) %>
-  <div id="follow_form">
-  <% if current_user.following?(@user) %>
-    <%= render 'unfollow' %>
-  <% else %>
-    <%= render 'follow' %>
-  <% end %>
+      <div class="user-cog">
+        <i class="fas fa-user-edit"></i>
+        <%= link_to 'プロフィール編集', edit_user_path(current_user) %>
+      </div>
+      <% if current_user.admin? || current_user?(@user) %>
+        <div class="user-cog">
+          <i class="fas fa-user-alt-slash"></i>
+          <%= link_to "アカウント削除", @user, method: :delete, data: { confirm: "本当に削除しますか?" } %>
+        </div>
+      <% end %>
+      <b>フォロー中のカテゴリ</b>
+      <ul class="following-categories">
+        <% @user.categories.each do |category| %>
+          <li><%= link_to category.name, search_path(key_word: category.name) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <ul class="nav nav-tabs nav-justified sp-trend-nav">
+        <li class="active"><a href="#commentaries" data-toggle="tab">Commentaries</a></li>
+        <li><a href="#reactions" data-toggle="tab">Reactions</a></li>
+        <li><a href="#discussions" data-toggle="tab">Discussions</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="commentaries">
+          <div class="home-item-header">
+            <p>解説</p>
+          </div>
+          <% if comments = @user.comments%>
+            <% comments.each do |comment|%>
+              <%= comment.content %>
+            <%end%>
+          <%end%>
+        </div>
+        <div class="tab-pane" id="reactions">
+          <div class="home-item-header">
+            <p>評価</p>
+          </div>
+          <% if reactions = @user.reactions%>
+            <% reactions.each do |reaction|%>
+              <%= reaction.comment.content %>
+              <%= reaction.evaluation %>
+            <%end%>
+          <%end%>
+        </div>
+        <div class="tab-pane" id="discussions">
+          <div class="home-item-header">
+            <p>討論</p>
+          </div>
+          <% if discussions = @user.discussions%>
+            <% discussions.each do |discussion|%>
+              <%= discussion.content %>
+            <%end%>
+          <%end%>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-
-
-
-<%= link_to 'Edit', edit_user_path(current_user) %> |
-<%= link_to 'Back', users_path %>
-
-  <% if current_user.admin? && !current_user?(@user) %>
-    | <%= link_to "delete", @user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  <% end %>
+</div>

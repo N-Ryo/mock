@@ -14,3 +14,13 @@ $(document).on 'turbolinks:load', ->
     else
       $("#tag_lists").css(display: "inline")
       $(this).html("＋")
+$ ->
+  
+  $("#comments").find('form button').hover(
+    ->
+      $(this).parent().parent().find(".evaluation-stars").css 'opacity', 0
+      $(this).css "opacity", 1
+    ->
+      $(this).css 'opacity', 0
+      $(this).parent().parent().find(".evaluation-stars").css 'opacity', 1
+  )

@@ -1,64 +1,75 @@
-<p>
-  <strong>Category:</strong>
-  <%= @hack.category.name %>
-  <span id="cfollowers">★<%= @hack.category.users.count %></span>
-  <%= render 'follow_form', hack: @hack %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @hack.role.name %>
-</p>
-
-<p>
-  <strong>Point:</strong>
-  <%= @hack.point %>
-</p>
-
-<strong>Tag_list:</strong>
-<label for="#tag-add-btn" id="tag-label">
-  <object id="tag_lists">
-    <% @hack.tag_list.each do |tag| %>
-      <span class="label label-primary tag_lists"><%= tag %></span>
-    <% end %>
-  </object>
-  <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#tag-add" id="tag-add-btn">＋</button>
-</label>
-<div class="field form-group　tag-add collapse" id="tag-add">
-  <%= form_with model: @hack do |form| %>
-    <% form.label :hack, :tag_list %>
-    <ul id="hack-tags"></ul>  
-  <% end %>
-</div>
-
-<p>
-  <strong>Overview:</strong>
-  <%= @hack.overview %>
-</p>
-
-<% @comments.each do |comment|%>
-  <%= render 'comments/feeling', {comment: comment}%>
-  <%= comment.reactions.count %>レビュー
-  <%= comment.point %>ポイント
-  <p>
-    <%=comment.content%><br>
-    <%=comment.created_at%>
-  </p>
-  
-  <% if current_user %>
-    <div id="reaction_form">
-    <% unless current_user.reaction?(comment.id) %>
-      <%= render 'reactions/first_reaction', {comment: comment} %>
-    <% else %>
-      <%= render 'reactions/change_reaction', {comment: comment} %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="user-show-top">
+        <h1 class="hack-title"><%= @hack.category.name %></h1>
+        <h2 class="hack-role">-<%= @hack.role.name %>-</h2>
+        <%= render 'follow_form', hack: @hack %>
+      </div>
+      <div class="row user-stats">
+        <div class="col-xs-6">
+          <h3><i class="fas fa-chart-bar"></i> Score</h3>
+          <span style="font-size: 16px;"><%= @hack.point %></span>
+        </div>
+        <div class="col-xs-6">
+          <h3>
+            <i class="fas fa-tags"></i> Tags
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#tag-add" id="tag-add-btn">＋</button>
+          </h3>
+          <label for="#tag-add-btn" id="tag-label">
+            <object id="tag-lists">
+              <% @hack.tag_list.each do |tag| %>
+                <span class="tag-list"><%= tag %></span>
+              <% end %>
+            </object>
+            
+          </label>
+          <div class="field form-group　tag-add collapse" id="tag-add">
+            <%= form_with model: @hack do |form| %>
+              <% form.label :hack, :tag_list %>
+              <ul id="hack-tags"></ul>  
+            <% end %>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <h3><i class="fas fa-chalkboard"></i> Overview</h3>
+          <div class="hack-overview"><%= @hack.overview %></div>
+        </div>
+        <div class="col-xs-12">
+          <h3 class="inline-block"><i class="fas fa-book"></i> Commentaries</h3>
+          <span class="commentary-message"><%= @comments.count %>件の解説があります</span>
+          <div class="row">
+            <div class="col-xs-10 col-xs-offset-1" id="comments">
+              <% @comments.each do |comment|%>
+                <div class="comment-content">
+                  <%= render 'comments/feeling', {comment: comment}%>
+                  レビュー数：<%= comment.reactions.count %>
+                  ポイント：<%= comment.point %>
+                  <% if current_user %>
+                    <div id="reaction-form" class="reaction-form">
+                    <% unless current_user.reaction?(comment.id) %>
+                      <%= render 'reactions/first_reaction', {comment: comment} %>
+                    <% else %>
+                      <%= render 'reactions/change_reaction', {comment: comment} %>
+                    <% end %>
+                    </div>
+                  <% end %>
+                  <p>
+                    <%=comment.content%><br>
+                    <%=comment.created_at.strftime("投稿日: %Y/%m/%d")%>
+                  </p>  
+                </div>
+              <% end %>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      
+      <%= render 'comments/form'%>
+      <%= link_to 'Back', hacks_path %>
     </div>
-  <% end %>
-<% end %>
-
-<p><%= @comments.count %>コメント</p>
-<%= render 'comments/form'%>
-
-
-
-<%= link_to 'Back', hacks_path %>
+  </div>
+</div>
