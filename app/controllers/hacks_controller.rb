@@ -1,5 +1,6 @@
 class HacksController < ApplicationController
   before_action :set_hack, only: [:show, :edit, :update, :destroy, :add]
+  before_action :set_hack_tags_to_gon, only: [:show]
 
   # GET /hacks
   # GET /hacks.json
@@ -74,5 +75,9 @@ class HacksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def hack_params
       params.require(:hack).permit(:id, :tag_list, :overview, :category_id, :role_id)
+    end
+
+    def set_hack_tags_to_gon
+      gon.hack_tags = @hack.tag_list
     end
 end

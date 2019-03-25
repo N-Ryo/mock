@@ -6,16 +6,16 @@ $(document).on 'turbolinks:load', ->
   $("#tag-add-btn").click ->
     count += 1
     if count == 1
-      tag = $(".tag_lists").text()
-      $("#hack-tags").tagit("createTag", tag)
+      if gon.hack_tags?
+        for tag in gon.hack_tags
+          $('#hack-tags').tagit 'createTag', tag
     if count % 2 == 1
-      $("#tag_lists").css(display: "none")
+      $("#tag-label").css(display: "none")
       $(this).html("ー")
     else
-      $("#tag_lists").css(display: "inline")
+      $("#tag-label").css(display: "inline")
       $(this).html("＋")
 $ ->
-  
   $("#comments").find('form button').hover(
     ->
       $(this).parent().parent().find(".evaluation-stars").css 'opacity', 0

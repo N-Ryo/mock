@@ -33,6 +33,7 @@ gem 'cloudinary'
 
 gem 'jquery-ui-rails'
 gem 'acts-as-taggable-on'
+gem 'gon'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
