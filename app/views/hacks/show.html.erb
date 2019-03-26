@@ -37,8 +37,7 @@
         <div class="col-xs-12 col-md-11 col-md-offset-1">
           <h3 class="inline-block"><i class="fas fa-book"></i> Commentaries</h3>
           <span class="commentary-message"><%= @comments.count %>件の解説があります</span>
-          <div class="row">
-            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-xs-offset-2" id="comments">
+            <div class="col-xs-10 col-xs-offset-1" id="comments">
               <% @comments.each do |comment|%>
                 <div class="row">
                   <div class="comment-content">
@@ -76,7 +75,6 @@
                 <hr>
               <% end %>
             </div>
-          </div>
           <hr>
           <div class="col-xs-10 col-xs-offset-1">
             <%= render 'comments/form'%>

@@ -563,7 +563,7 @@ header, footer{
   padding-left: 15px;
   color: #888;
 }
-.comment-content{
+.comment-content, .discussion-content, .reply-discussions{
   margin: 20px 0;
   padding-left: 12px;
   border-left: #5FE748 4px solid;
@@ -695,4 +695,9 @@ form[class^="reaction"], .empty-stars, .evaluation-stars{
   border: none;
   font-size: 1.1em;
   font-weight: 600;
+}
+.reply-btn{
+  width: 80px;
+  height: 30px;
+  font-size: 1em;
 }
