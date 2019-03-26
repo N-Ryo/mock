@@ -659,39 +659,15 @@ form[class^="reaction"], .empty-stars, .evaluation-stars{
   position: absolute;
   vertical-align: middle;
 }
-/*テスト
-.test{
+
+// discussion
+.right-submit-btn{
+  margin-left: auto;
+  margin-top: 10px;
   display: block;
-  overflow: visible;
+  background-color: #5FE748;
+  color: #fff;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 600;
 }
-.top-left{
-  float: left;
-  position: relative;
-  border: red 1px solid;
-  width: 66%;
-  height: 50px;
-}
-.bottom-left{
-  position: absolute;
-  bottom: -210px;
-  left: 0;
-  border: blue 1px solid;
-  width: 50%;
-  height: 200px;
-}
-.top-right{
-  float: right;
-  position: relative;
-  border: purple 1px solid;
-  width: 33%;
-  height: 200px;
-}
-.bottom-right{
-  position: absolute;
-  bottom: -60px;
-  right: 0;
-  border: green 1px solid;
-  width: 200%;
-  height: 50px;
-}
-*/

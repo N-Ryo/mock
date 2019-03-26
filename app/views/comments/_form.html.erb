@@ -18,35 +18,37 @@
     <p><%= current_user.name %>がコメントしようとしています</p>
     <div class="field comment-feeling">
       <%= form.label :feeling %>
-      <%= form.radio_button :feeling, 0, {id: "crown", checked: true} %>
-        <label for="crown" class="feeling"><i class="fas fa-crown fa-lg"></i></label>
-        <div class="feeling-explanation">便利でめっちゃ使う</div>
-      <%= form.radio_button :feeling, 1, id: "clock" %>
-        <label for="clock" class="feeling"><i class="far fa-clock fa-lg"></i></label>
-        <div class="feeling-explanation">めっちゃ悩んでたのが解決した</div>
-      <%= form.radio_button :feeling, 2, id: "flag" %>
-        <label for="flag" class="feeling"><i class="far fa-flag fa-lg"></i></label>
-        <div class="feeling-explanation">地味に便利</div>
-      <%= form.radio_button :feeling, 3, id: "dead-book" %>
-        <label for="dead-book" class="feeling"><i class="fas fa-book-dead fa-lg"></i></label>
-        <div class="feeling-explanation">難易度高め</div>
-      <%= form.radio_button :feeling, 4, id: "baby" %>
-        <label for="baby" class="feeling"><i class="fas fa-baby fa-lg"></i></label>
-        <div class="feeling-explanation">早く知りたかった</div>
-      <%= form.radio_button :feeling, 5, id: "code" %>
-        <label for="code" class="feeling"><i class="fas fa-code fa-lg"></i></label>
-        <div class="feeling-explanation">基礎（必須）</div>
+      <div style="padding-left: 20px;">
+        <%= form.radio_button :feeling, 0, {id: "crown", checked: true} %>
+          <label for="crown" class="feeling"><i class="fas fa-crown fa-lg"></i></label>
+          <div class="feeling-explanation">便利でめっちゃ使う</div>
+        <%= form.radio_button :feeling, 1, id: "clock" %>
+          <label for="clock" class="feeling"><i class="far fa-clock fa-lg"></i></label>
+          <div class="feeling-explanation">めっちゃ悩んでたのが解決した</div>
+        <%= form.radio_button :feeling, 2, id: "flag" %>
+          <label for="flag" class="feeling"><i class="far fa-flag fa-lg"></i></label>
+          <div class="feeling-explanation">地味に便利</div>
+        <%= form.radio_button :feeling, 3, id: "dead-book" %>
+          <label for="dead-book" class="feeling"><i class="fas fa-book-dead fa-lg"></i></label>
+          <div class="feeling-explanation">難易度高め</div>
+        <%= form.radio_button :feeling, 4, id: "baby" %>
+          <label for="baby" class="feeling"><i class="fas fa-baby fa-lg"></i></label>
+          <div class="feeling-explanation">早く知りたかった</div>
+        <%= form.radio_button :feeling, 5, id: "code" %>
+          <label for="code" class="feeling"><i class="fas fa-code fa-lg"></i></label>
+          <div class="feeling-explanation">基礎（必須）</div>
+      </div>
     </div>
 
     <div class="field">
       <%= form.label "コメント" %>
-      <%= form.text_area :content, required: true, id: :@comment_content, placeholder: "あなたの感動したタイミングを共有しましょう！" %>
+      <%= form.text_area :content, required: true, class: "form-control", id: :@comment_content, placeholder: 'あなたの感動した"hack"を解説として共有しましょう！' %>
     </div>
 
 
 
     <div class="actions">
-      <%= form.submit %>
+      <%= button_tag '新規投稿', class: "btn right-submit-btn", type: 'submit' %>
     </div>
 <% end %>
 <%else%>

@@ -16,7 +16,7 @@ $(document).on 'turbolinks:load', ->
       $("#tag-label").css(display: "inline")
       $(this).html("＋")
 $ ->
-  $("#comments").find('button').hover(
+  $('.reaction-button').hover(
     ->
       $(this).parent().parent().parent().find(".evaluation-stars").css 'opacity', 0
       $(this).css "opacity", 1

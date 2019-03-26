@@ -1,8 +1,8 @@
 <% reaction = current_user.reactions.find_by(comment_id: comment.id) %>
 <span class="empty-stars">☆ ☆ ☆ ☆ ☆</span>
 <span class="evaluation-stars" id="evaluation-stars<%= reaction.id %>">
-  <span><%= "★ " * reaction.evaluation %></span>
+  <%= "★ " * reaction.evaluation %>
 </span>
-<div id="first-stars<%= reaction.id %>">
+<div id="stars<%= reaction.id %>" style="z-index: 100;">
   <%= render 'reactions/stars', reaction: reaction %>
 </div>
