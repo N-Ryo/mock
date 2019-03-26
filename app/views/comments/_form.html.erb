@@ -18,7 +18,7 @@
     <p><%= current_user.name %>がコメントしようとしています</p>
     <div class="field comment-feeling">
       <%= form.label :feeling %>
-      <div style="padding-left: 20px;">
+      <div style="padding: 5px 0 5px 20px;">
         <%= form.radio_button :feeling, 0, {id: "crown", checked: true} %>
           <label for="crown" class="feeling"><i class="fas fa-crown fa-lg"></i></label>
           <div class="feeling-explanation">便利でめっちゃ使う</div>
@@ -39,14 +39,10 @@
           <div class="feeling-explanation">基礎（必須）</div>
       </div>
     </div>
-
     <div class="field">
       <%= form.label "コメント" %>
       <%= form.text_area :content, required: true, class: "form-control", id: :@comment_content, placeholder: 'あなたの感動した"hack"を解説として共有しましょう！' %>
     </div>
-
-
-
     <div class="actions">
       <%= button_tag '新規投稿', class: "btn right-submit-btn", type: 'submit' %>
     </div>

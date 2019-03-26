@@ -6,5 +6,6 @@ class CreateUserCategoryRelationships < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :user_category_relationships, [:user_id, :category_id], unique: true
   end
 end

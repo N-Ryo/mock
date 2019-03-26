@@ -188,6 +188,9 @@ object{
     font-weight: normal;
   }
 }
+.user-form{
+  padding-top: 1.5vw; 
+}
 
 #session_remember_me {
   width: auto;
@@ -221,6 +224,21 @@ footer{
 }
 
 //tag周り
+#hack-tags{
+  display: block;
+  width: 100%;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
 .tag-lists{
   height: 19px;
 }
@@ -395,6 +413,8 @@ header, footer{
   background-color: #5FE748;
   color: #fff;
   .row{
+    margin-right: 0;
+    margin-left: 0;
     display: flex;
     align-items: center;
   }
@@ -445,7 +465,7 @@ header, footer{
   }
   
   .tab-pane{
-    padding: 15px 0;
+    padding-bottom: 15px;
     border: 2px solid #fff;
     border-top: none;
     border-bottom-left-radius: 4px;
@@ -454,7 +474,10 @@ header, footer{
       font-size: 12px;
     }
   }
-  
+  .right-nav a{
+    margin-right: -1px !important;
+    margin-left: -2px !important;
+  }
 }
 
 .home{
@@ -462,7 +485,6 @@ header, footer{
   .center-col{
     background-color: #fff;
     height: 1000px;
-    margin: 0 15px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -575,10 +597,13 @@ header, footer{
 }
 .feeling-explanation{
   position: absolute;
-  width: 100%;
   top: 0;
-  left: 80%;
-  color: red;
+  padding: 6px 12px;
+  line-height: 7px;
+  border-radius: 4px;
+  left: 80px;
+  color: #555;
+  background-color: rgba(95, 231, 72, 0.2);
   display: none;
 }
 //search
@@ -594,7 +619,7 @@ header, footer{
   }
 }
 // hack show
-.user-show-top{
+.user-show-top, .hack-new-top{
   text-align: center;
 }
 .hack-title{
@@ -608,7 +633,7 @@ header, footer{
   vertical-align: bottom;
   margin-top: 0;
 }
-.user-stats{
+.user-stats, .hack-form{
   background-color: #fff;
   padding-bottom: 20px; 
 }

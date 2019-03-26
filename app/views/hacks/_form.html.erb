@@ -1,50 +1,47 @@
-<%= form_with(model: hack, local: true) do |form| %>
-  <% if hack.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(hack.errors.count, "error") %> prohibited this hack from being saved:</h2>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1" id="discussion_content">
+    <%= form_with(model: hack, local: true) do |form| %>
+      <% if hack.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(hack.errors.count, "error") %> prohibited this hack from being saved:</h2>
 
-      <ul>
-      <% hack.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% hack.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
 
-  <div class="field form-group">
-    <%= form.label "Category" %>
-    <%= form.collection_select(:category_id, Category.all, :id, :name) %>
+      <div class="field form-group">
+        <h3>Category</h3>
+        <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください" %>
+      </div>
+
+
+      <div class="field form-group">
+        <h3>Role</h3>
+        <%= form.collection_select :role_id, Role.all, :id, :name, :prompt => "選択してください" %>
+      </div>
+
+      <div class="field form-group">
+        <h3>Tag list</h3>
+        <ul id="hack-tags"></ul>
+      </div>
+
+      <div class="field form-group">
+        <h3>Overview</h3>
+        <%= form.text_area :overview, class: "form-control", id: :hack_overview, placeholder: "概要を入力してください" %>
+      </div>
+
+      <div class="actions">
+        <%= button_tag '新規投稿', class: "btn right-submit-btn", type: 'submit' %>
+      </div>
+    <% end %>
   </div>
-
-
-  <%#= form.fields_for :role, hack.build_role do |r|%>
-  <div class="field form-group">
-    <%#= r.label "Role" %>
-    <%#= r.collection_select(:role_id, Role.all, :id, :name) %>
-    <%= form.label "Role" %>
-    <%= form.collection_select(:role_id, Role.all, :id, :name) %>
-
-  </div>
-
-  <%#end%>
-
-  <div class="field form-group">
-    <%= form.label :hack, :tag_list %>
-    <ul id="hack-tags"></ul>
-  </div>
-
-  <div class="field form-group">
-    <%= form.label :hack, :overview %>
-    <%= form.text_area :overview, id: :hack_overview %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
+</div>
 <%= javascript_tag do %>
-var myProject = { all_tag_list: <%= raw @all_tag_list %> };
-<%end%>
+  var myProject = { all_tag_list: <%= raw @all_tag_list %> };
+<% end %>

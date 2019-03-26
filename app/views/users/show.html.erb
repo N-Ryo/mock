@@ -29,8 +29,14 @@
       </div>
       <% if current_user.admin? || current_user?(@user) %>
         <div class="user-cog">
-          <i class="fas fa-user-alt-slash"></i>
-          <%= link_to "アカウント削除", @user, method: :delete, data: { confirm: "本当に削除しますか?" } %>
+          <div>
+            <i class="fas fa-sign-out-alt"></i>
+            <%= link_to "サインアウト", signout_path, method: :delete %>
+          </div>
+          <div>
+            <i class="fas fa-user-alt-slash"></i>
+            <%= link_to "アカウント削除", @user, method: :delete, data: { confirm: "本当に削除しますか?" } %>
+          </div>
         </div>
       <% end %>
       <b>フォロー中のカテゴリ</b>

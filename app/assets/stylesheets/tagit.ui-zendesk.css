@@ -9,13 +9,14 @@ ul.tagit {
     background: inherit;
 }
 ul.tagit li.tagit-choice {
+    text-align: left;
     -moz-border-radius: 6px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    border: 1px solid #CAD8F3;
+    border: 1px solid #3f920040;
 
     background: none;
-    background-color: #DEE7F8;
+    background-color: #8aff7ce6;
 
     font-weight: normal;
 }
