@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   end
   patch '/hacks/:id', to: 'hacks#update'
   resources :hacks, only: [:index, :show, :new, :create, :destroy] do 
-    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :comments, only: [:new, :show, :create, :edit, :update, :destroy] do
+      resources :discussions, only: [:create, :update, :destroy]
+    end
   end
   
   resources :account_activations, only: [:edit]

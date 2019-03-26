@@ -1,3 +1,4 @@
-document.getElementById("evaluation-stars<%= @reaction.id %>").innerHTML = "<%= "★ " * @reaction.evaluation %>";
+document.getElementById("evaluation-stars<%= @reaction.id %>") = "<span class="evaluation-stars" id="evaluation-stars<%= reaction.id %>" style="opacity: 1;" ><span><%= "★ " * reaction.evaluation %></span></span>";
+$("#first-stars<%= @reaction.id %>").html("<%= escape_javascript(render('reactions/stars', reaction: @reaction)) %>");
 $("#commentary-stats<%= @comment.id %>").html("<%= escape_javascript(render('comments/commentary_stats', comment: @comment)) %>");
 document.getElementById("hack-point").innerHTML = "<%= @hack.point %>";

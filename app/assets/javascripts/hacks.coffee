@@ -16,11 +16,13 @@ $(document).on 'turbolinks:load', ->
       $("#tag-label").css(display: "inline")
       $(this).html("＋")
 $ ->
-  $("#comments").find('form button').hover(
+  $("#comments").find('button').hover(
     ->
-      $(this).parent().parent().find(".evaluation-stars").css 'opacity', 0
+      $(this).parent().parent().parent().find(".evaluation-stars").css 'opacity', 0
       $(this).css "opacity", 1
     ->
       $(this).css 'opacity', 0
-      $(this).parent().parent().find(".evaluation-stars").css 'opacity', 1
+      $(this).parent().parent().parent().find(".evaluation-stars").css 'opacity', 1
   )
+
+  

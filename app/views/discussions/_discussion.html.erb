@@ -1,0 +1,17 @@
+<%= discussion.user.name %>
+<%= discussion.content %>
+<%= discussion.created_at.strftime("投稿日：%Y/%m/%d") %>
+<% if discussion.reply_discussions %>
+  <% discussion.reply_discussions.each do |reply|%>
+    | <%= discussion.user.name %>
+    | <%= discussion.content %>
+    | <%= discussion.created_at.strftime("投稿日：%Y/%m/%d") %>
+  <% end %>
+<% end %>
+<%= form_with url: hack_comment_discussions_path(discussion.comment.hack_id, discussion.comment_id), model: Discussion.new do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :comment_id, value: discussion.comment_id %>
+  <%= form.hidden_field :discussion_id, value: discussion.id %>
+  <%= form.text_field :content, placeholder: "解説に対して意見を投稿してディスカッションしましょう" %>
+  <%= form.submit 'リプライ' %>
+<% end %>

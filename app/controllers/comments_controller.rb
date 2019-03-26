@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:update, :destroy]
+  before_action :set_comment, only: [:show, :update, :destroy]
   before_action :set_comments, only: [:create, :update, :destroy]
-  before_action :set_hack, only: [:create, :update, :destroy]
+  before_action :set_hack, only: [:show, :create, :update, :destroy]
+
+  def show
+    @discussion = Discussion.new
+    @discussions = Discussion.where(comment_id: @comment.id, discussion_id: nil)
+  end
 
   def create
     @comment = Comment.new(comment_params)
@@ -44,7 +49,7 @@ class CommentsController < ApplicationController
     end
 
     def set_comments
-      @comments = Comment.where("hack_id = ?", params[:hack_id])
+      @comments = Comment.where(hack_id: params[:hack_id])
     end
 
     def set_hack
