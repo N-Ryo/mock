@@ -655,27 +655,22 @@ header, footer{
   display: none;
 }
 //search
-
-.search{
-  width: 90%;
-  margin: 0 auto;
-  .search-results{
-    background-color: #fff;
-    border: #ddd 1px solid;
-    width: 90%;
-    margin: 0 auto 30px auto; 
-  }
+  
+.search-results{
+  background-color: #fff;
+  border: #ddd 1px solid;
 }
+
 // hack show
 .user-show-top, .hack-new-top{
   text-align: center;
 }
-.hack-title{
+.hack-title, .search-title{
   display: inline-block;
   vertical-align: middle;
   margin-top: 0;
 }
-.hack-role{
+.hack-role, .search-word{
   display: inline-block;
   padding-left: 1vw;
   vertical-align: bottom;

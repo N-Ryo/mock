@@ -50,7 +50,7 @@
             <div class="borderLine">
               <% category_list.each do |category|%>
                 <% unless category.hacks.blank? %> 
-                  <li class="modal-list"><%= link_to category.name, search_path(key_word: category.name) %></li>
+                  <li class="modal-list"><%= link_to category.name, search_path(q: { category_name_cont: category.name }) %></li>
                 <% end %>
               <%end%>
             </div>
@@ -61,7 +61,7 @@
             <div class="borderLine">
               <% role_list.each do |role|%>
                 <% unless role.hacks.blank? %> 
-                  <li class="modal-list"><%= link_to role.name, search_path(key_word: role.name) %></li>
+                  <li class="modal-list"><%= link_to role.name, search_path(q: { role_name_cont: role.name }) %></li>
                 <% end %>
               <%end%>
             </div>

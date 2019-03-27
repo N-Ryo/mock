@@ -31,6 +31,7 @@ gem 'rmagick', '~> 3.0'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'kaminari', '~> 0.17.0'
+gem 'ransack'
 
 gem 'jquery-ui-rails'
 gem 'acts-as-taggable-on'

@@ -1,22 +1,23 @@
-<div class="search">
-  <% unless @category_hacks.blank? %>
-    <h2>Category</h2>
-    <div class="search-results">
-      <% @category_hacks.each do |hack|%>
-        <section>
-          <%= render partial: 'hacks/content', locals: {hack: hack, point: ""} %>
-        </section>
-      <% end %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="user-show-top">
+        <% if @key_word.blank? %>
+          <h1 class="search-title">リファレンスリスト</h1>
+        <% else %>
+          <h1 class="search-title fas fa-search"> 検索ワード</h1>
+          <h2 class="search-word"><%= @key_word %></h2>
+        <% end %>
+      </div>
+      <div class="search-results">
+        <% @hacks.each do |hack|%>
+          <section>
+            <%= render partial: 'hacks/content', locals: {hack: hack, point: ""} %>
+          </section>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-  <% unless @role_hacks.blank? %>
-    <h2>Role</h2>
-    <div class="search-results">
-      <% @role_hacks.each do |hack|%>
-        <section>
-          <%= render partial: 'hacks/content', locals: {hack: hack, point: ""} %>
-        </section>
-      <% end %>
-    </div>
-  <% end %>
+  </div>
 </div>
