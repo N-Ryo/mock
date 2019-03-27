@@ -1,7 +1,8 @@
 <% reaction = current_user.reactions.build %>
 <% reaction.comment_id = comment.id%>
 <span class="empty-stars">☆ ☆ ☆ ☆ ☆</span>
-<span class="evaluation-stars" id="evaluation-stars<%= Reaction.last.id + 1 %>"></span>
-<div id="stars<%= Reaction.last.id + 1 %>" style="z-index: 100;">
+<% reaction_id = Reaction.all.blank? ? 1 : (Reaction.last.id + 1) %>
+<span class="evaluation-stars" id="evaluation-stars<%= reaction_id %>"></span>
+<div id="stars<%= reaction_id %>" style="z-index: 100;">
   <%= render 'reactions/stars', reaction: reaction %>
 </div>
