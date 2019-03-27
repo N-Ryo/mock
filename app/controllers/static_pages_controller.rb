@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-  include Trend
   def home
     @hacks = Hack.all
     @user = User.new

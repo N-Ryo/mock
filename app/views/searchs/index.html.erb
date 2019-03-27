@@ -4,7 +4,7 @@
     <div class="search-results">
       <% @category_hacks.each do |hack|%>
         <section>
-          <%= render partial: 'hacks/content', locals: {hack: hack} %>
+          <%= render partial: 'hacks/content', locals: {hack: hack, point: ""} %>
         </section>
       <% end %>
     </div>
@@ -14,7 +14,7 @@
     <div class="search-results">
       <% @role_hacks.each do |hack|%>
         <section>
-          <%= render partial: 'hacks/content', locals: {hack: hack} %>
+          <%= render partial: 'hacks/content', locals: {hack: hack, point: ""} %>
         </section>
       <% end %>
     </div>

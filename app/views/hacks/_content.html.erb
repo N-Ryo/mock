@@ -10,7 +10,9 @@
         </div>
       </div>
       <% begin %>
-        <div class="pointing-up"><i class="fas fa-level-up-alt"></i> <%= point %></div>
+        <% unless point.blank? %>
+          <div class="pointing-up"><i class="fas fa-level-up-alt"></i> <%= point %></div>
+        <% end %>
       <% rescue %>
       <% end %>
       <label style="display: block;">
