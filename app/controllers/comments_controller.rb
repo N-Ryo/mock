@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def show
     @discussion = Discussion.new
-    @discussions = Discussion.where(comment_id: @comment.id, discussion_id: nil)
+    @discussions = Discussion.where(comment_id: @comment.id, discussion_id: nil).page(params[:page]).per(5)
   end
 
   def create

@@ -1,4 +1,5 @@
-<% discussion.reply_discussions.each do |reply|%>
+<% replies = discussion.reply_discussions.page(params[:"reply#{discussion.id}_page"]).per(3) %>
+<% replies.each do |reply|%>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <div class="reply-discussions" id="discussion<%= reply.id %>">
@@ -7,3 +8,4 @@
     </div>
   </div>
 <% end %>
+<%= paginate replies, :param_name => "reply#{discussion.id}_page" %>

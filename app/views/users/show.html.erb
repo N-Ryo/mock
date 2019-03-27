@@ -80,7 +80,7 @@
           </div>
           <div class="row">
             <div class="col-xs-10 col-xs-offset-1 user-stats user-show-stats">
-              <% if comments = @user.comments%>
+              <% if comments = @user.comments.page(params[:comment_page]).per(20) %>
                 <% comments.each do |comment|%>
                   <%= link_to hack_path(comment.hack_id), class: "user-stats-content" do %>
                     <div class="row">
@@ -95,6 +95,7 @@
                   <% end%>
                   <hr>
                 <%end%>
+                <%= paginate comments, :param_name => 'comment_page' %>
               <% else %>
                 <p><% @user.name %>さんの解説はありません。</p>
               <%end%>
@@ -107,7 +108,7 @@
           </div>
           <div class="row">
             <div class="col-xs-10 col-xs-offset-1 user-stats user-show-stats">
-              <% if reactions = @user.reactions%>
+              <% if reactions = @user.reactions.page(params[:reaction_page]).per(20) %>
                 <% reactions.each do |reaction|%>
                   <%= link_to hack_path(reaction.comment.hack_id), class: "user-stats-content" do %>
                     <div class="row">
@@ -123,6 +124,7 @@
                   <% end %>
                   <hr>
                 <%end%>
+                <%= paginate reactions, :param_name => 'reaction_page' %>
               <% else %>
                 <p><% @user.name %>さんの評価した解説はありません。</p>
               <%end%>
@@ -135,7 +137,7 @@
           </div>
           <div class="row">
             <div class="col-xs-10 col-xs-offset-1 user-stats user-show-stats">
-              <% if discussions = @user.discussions%>
+              <% if discussions = @user.discussions.page(params[:discussion_page]).per(20) %>
                 <% discussions.each do |discussion|%>
                   <%= link_to hack_comment_path(discussion.comment.hack_id, discussion.comment_id), class: "user-stats-content" do %>
                     <div class="row">
@@ -151,6 +153,7 @@
                   <% end %>
                   <hr>
                 <%end%>
+                <%= paginate discussions, :param_name => 'discussion_page' %>
               <% else %>
                 <p><% @user.name %>さんの討論データはありません。</p>
               <%end%>

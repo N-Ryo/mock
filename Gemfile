@@ -30,6 +30,7 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'rmagick', '~> 3.0'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'kaminari', '~> 0.17.0'
 
 gem 'jquery-ui-rails'
 gem 'acts-as-taggable-on'

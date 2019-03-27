@@ -12,7 +12,8 @@ class HacksController < ApplicationController
   # GET /hacks/1.json
   def show
     @comment = Comment.new
-    @comments = Comment.where("hack_id = ?", @hack.id).order(point: :desc)
+    @comment_num = Comment.where("hack_id = ?", @hack.id).count
+    @comments = Comment.where("hack_id = ?", @hack.id).order(point: :desc).page(params[:page]).per(10)
   end
 
   # GET /hacks/new
