@@ -1,5 +1,4 @@
 class SearchsController < ApplicationController
-  include Trend
   def index
     @categories = Category.where(name: params[:key_word])
     @roles = Role.where(name: params[:key_word])
