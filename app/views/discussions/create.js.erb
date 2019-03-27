@@ -1,0 +1,5 @@
+<% if @discussion.discussion_id %>
+  $("#reply_discussions<%= @replied_discussion.id %>").html("<%= escape_javascript(render('discussions/reply_content', discussion: @replied_discussion)) %>")
+<% else %>
+  $("#discussion_content").html("<%= escape_javascript(render(partial: 'discussions/discussion', collection: @discussions)) %>")
+<% end %>

@@ -3,6 +3,10 @@ class DiscussionsController < ApplicationController
   def create
     @discussion = Discussion.new(discussion_params)
     @discussion.save
+    if @discussion.discussion_id
+      @replied_discussion = Discussion.find(@discussion.discussion_id)
+    end
+    @discussions = Discussion.where(comment_id: @discussion.comment_id)
     respond_to do |format|
       format.html { redirect_to @discussion.comment }
       format.js
@@ -18,13 +22,13 @@ class DiscussionsController < ApplicationController
   end
 
   def destroy
+    @discussion_id = @discussion.discussion_id
     @discussion.destroy
     respond_to do |format|
       format.html { redirect_to @discussion.comment }
       format.js
     end
   end
-
   private
     def set_discussion
       @discussion = Discussion.find(params[:id])

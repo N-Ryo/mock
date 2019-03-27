@@ -686,6 +686,17 @@ form[class^="reaction"], .empty-stars, .evaluation-stars{
 }
 
 // discussion
+.new-discussion-btn{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  color: #fff;
+  background-color: #5FE748;
+  border: #3f9200A0 1px solid;
+  border-radius: 60px;
+}
 .right-submit-btn{
   margin-left: auto;
   margin-top: 10px;

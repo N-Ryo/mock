@@ -1,0 +1,21 @@
+<%= discussion.user.name %><br>
+<%= discussion.content %><br>
+<%= discussion.created_at.strftime("投稿日：%Y/%m/%d") %><br>
+<% if discussion.user_id == current_user.id %>
+  <%= link_to '削除', hack_comment_discussion_path(discussion.comment.hack_id, discussion.comment_id, discussion.id), method: :delete, remote: true %><br>
+<% end %>
+
+<% if false %>
+<% unless discussion.discussion_id %>
+  <div class="col-xs-10 col-xs-offset-1">
+    <%= form_with url: hack_comment_discussions_path(discussion.comment.hack_id, discussion.comment_id), model: Discussion.new do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.hidden_field :comment_id, value: discussion.comment_id %>
+      <%= form.hidden_field :discussion_id, value: discussion.id %>
+      <%= form.text_area :content, rows: 1, class: "form-control", style: "text-align: center;", placeholder: "Let's discussion!!!" %>
+      <%= button_tag 'リプライ', class: "btn right-submit-btn reply-btn", type: 'submit' %>
+    <% end %>
+    <hr>
+  </div>
+<% end %>
+<%end%>

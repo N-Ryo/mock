@@ -1,0 +1,5 @@
+<%# discussionの非表示 %>
+$("#discussion<%= @discussion.id %>").css('display', 'none')
+<% unless @discussion_id %>
+  $("#reply-discussion-form<%= @discussion.id %>").css('display', 'none')
+<% end %>

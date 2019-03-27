@@ -1,22 +1,12 @@
-<div class="col-xs-12 discussion-content">
-  <%= discussion.user.name %><br>
-  <%= discussion.content %><br>
-  <%= discussion.created_at.strftime("投稿日：%Y/%m/%d") %><br>
+<div class="col-xs-12 discussion-content" id="discussion<%= discussion.id%>">
+  <%= render 'discussions/content', discussion: discussion %>
 </div>
-<% if discussion.reply_discussions %>
-  <% discussion.reply_discussions.each do |reply|%>
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1">
-        <div class="reply-discussions">
-          <%= discussion.user.name %><br>
-          <%= discussion.content %><br>
-          <%= discussion.created_at.strftime("投稿日：%Y/%m/%d") %><br>
-        </div>
-      </div>
-    </div>
+<div id="reply_discussions<%= discussion.id %>">
+  <% if discussion.reply_discussions %>
+    <%= render 'discussions/reply_content', discussion: discussion %>
   <% end %>
-<% end %>
-<div class="col-xs-10 col-xs-offset-1">
+</div>
+<div class="col-xs-10 col-xs-offset-1" id="reply-discussion-form<%= discussion.id %>">
   <%= form_with url: hack_comment_discussions_path(discussion.comment.hack_id, discussion.comment_id), model: Discussion.new do |form| %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.hidden_field :comment_id, value: discussion.comment_id %>

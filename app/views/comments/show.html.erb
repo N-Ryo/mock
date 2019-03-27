@@ -12,14 +12,15 @@
           <h4><%= @comment.content %></h4>
         </div>
         <div class="col-xs-12 col-md-11 col-md-offset-1">
-          <h3><i class="fas fa-comments"></i> Discussion</h3>
+          <h3 style="position: relative;"><i class="fas fa-comments"></i> Discussion</h3>
+          <button id="btn" class="new-discussion-btn"><i class="fas fa-pen"></i></button>
           <div class="row">
             <div class="col-xs-10 col-xs-offset-1" id="discussion_content">
               <% if @discussions %>
                 <%= render partial: 'discussions/discussion', collection: @discussions %>
               <% end %>
             </div>
-            <div class="col-xs-10 col-xs-offset-1">
+            <div class="col-xs-10 col-xs-offset-1" id="new-discussion-form">
               <%= form_with url: hack_comment_discussions_path(@hack.id, @comment.id), model: @discussion, class: "form-group" do |form| %>
                 <%= form.hidden_field :user_id, value: current_user.id %>
                 <%= form.hidden_field :comment_id, value: @comment.id %>
@@ -33,3 +34,13 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(document).on('turbolinks:load', function() {
+  $("#btn").on("click", function(){
+    var n = window.location.href.slice(window.location.href.indexOf('?') + 4);
+    var p = $("#new-discussion-form").offset().top;
+    $('html,body').animate({ scrollTop: p }, 'slow');
+    return false;
+  });
+});
+</script>
