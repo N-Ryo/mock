@@ -17,13 +17,13 @@
 
       <div class="field form-group">
         <h3>Category</h3>
-        <%= form.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください" %>
+        <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "選択してください" }, { class: "form-control" } %>
       </div>
 
 
       <div class="field form-group">
         <h3>Role</h3>
-        <%= form.collection_select :role_id, Role.all, :id, :name, :prompt => "選択してください" %>
+        <%= form.collection_select :role_id, Role.all, :id, :name, { prompt: "選択してください" }, { class: "form-control" } %>
       </div>
 
       <div class="field form-group">

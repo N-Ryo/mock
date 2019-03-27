@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190322033838) do
+ActiveRecord::Schema.define(version: 20190327164222) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -113,20 +113,7 @@ ActiveRecord::Schema.define(version: 20190322033838) do
     t.index ["follower_id"], name: "index_user_relationships_on_follower_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.string "remember_digest"
-    t.boolean "admin", default: false, null: false
-    t.string "activation_digest"
-    t.boolean "activated", default: false
-    t.datetime "activated_at"
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
-    t.integer "proficiency"
-  end
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'url' for column 'website_url'
 
 end

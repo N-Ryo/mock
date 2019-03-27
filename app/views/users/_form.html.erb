@@ -13,15 +13,40 @@
         </div>
 
         <div class="field form-group">
-          <%= form.text_field :proficiency, class: "form-control", id: :user_proficiency, placeholder: :proficiency %>
+          <%=
+            form.select(
+              :proficiency,
+              [ [ "半年以下", 1 ], ["1年以上", 2 ], ["2年以上", 3 ], ["3年以上", 4 ], [ "5年以上", 5 ] ],
+              { include_blank: "プログラミング歴" },
+              { class: "form-control", id: :user_proficiency }
+            )
+          %>
+        </div>
+
+        <% if user.id %>
+          <div class="field form-group">
+            <%= form.url_field :website_url, class: "form-control", id: :user_website_url, placeholder: 'Website or Blog' %>
+          </div>
+
+          <div class="field form-group">
+            <%= form.text_field :organization, class: "form-control", id: :user_organization, placeholder: 'Organization or Campany' %>
+          </div>
+
+          <div class="field form-group">
+            <%= form.text_field :location, class: "form-control", id: :user_location, placeholder: 'Living at..' %>
+          </div>
+
+          <div class="field form-group">
+            <%= form.text_area :description, class: "form-control", id: :user_description, placeholder: 'Self-introduction' %>
+          </div>
+        <% end %>
+
+        <div class="field form-group">
+          <%= form.password_field :password, class: "form-control", id: :user_password, placeholder: :password %>
         </div>
 
         <div class="field form-group">
-          <%= form.text_field :password, class: "form-control", id: :user_password, placeholder: :password %>
-        </div>
-
-        <div class="field form-group">
-          <%= form.text_field :password_confirmation, class: "form-control", id: :user_password_confirmation, placeholder: :password_confirmation %>
+          <%= form.password_field :password_confirmation, class: "form-control", id: :user_password_confirmation, placeholder: :password_confirmation %>
         </div>
 
         <div class="actions">
