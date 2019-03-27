@@ -10,7 +10,7 @@ module Trend
         FROM reactions
           INNER JOIN comments ON reactions.comment_id = comments.id
           INNER JOIN users ON reactions.user_id = users.id
-      )
+      ) as point
       GROUP BY hack_id
       ORDER BY sum(point_id) DESC"
     )

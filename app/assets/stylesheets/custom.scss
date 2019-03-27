@@ -488,12 +488,6 @@ header, footer{
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-
-    .home-item-header{
-      padding-top: 16px;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
   }
   .pc-trend-nav{
     display: none;
@@ -548,9 +542,11 @@ header, footer{
   }
 }
 // users
-
 .user-cog{
-  padding-top: 5px;
+  padding-top: 8px;
+}
+.user-cog, .user-stats-content{
+  padding-top: 8px;
   color: #555;
   text-decoration: none;
   a{
@@ -558,6 +554,43 @@ header, footer{
   }
 }
 
+.user-stats-content .row{
+  padding: 5px 0;
+  margin: 0 10px;
+  &:hover{
+    background-color: #5FE74833;
+  }
+}
+
+.item-header{
+  margin-bottom: 15px;
+}
+
+.user-show-stats{
+  padding-top: 20px; 
+}
+
+.user-stats-title li{
+  width: 33%;
+  a{
+    color: #555;
+    width: inherit;
+    border-bottom: #3f9200 solid 2px !important;
+  }
+}
+
+.stats{
+  padding-bottom: 5px;
+  .stat{
+    display: inline-block;
+  }
+
+  .followers-stats{
+    border-left: #555 1px solid;
+    padding-left: .7em;
+    margin-left: .2em;
+  }
+}
 // commnent
 .commentary-message{
   padding-left: 15px;
