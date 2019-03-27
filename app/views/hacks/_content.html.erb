@@ -1,6 +1,5 @@
 <%= link_to hack do  %>
   <section class="hack-content">
-    <div class="category-icon"><span><%= hack.category.name %></span></div>
     <div class="hack-text">
       <div class="names">
         <div class="category-name">
@@ -11,10 +10,10 @@
         </div>
       </div>
       <% begin %>
-        <div><%= point %>ポイント増量中！</div>
+        <div class="pointing-up"><i class="fas fa-level-up-alt"></i> <%= point %></div>
       <% rescue %>
       <% end %>
-      <label>
+      <label style="display: block;">
         <div class="tag-lists">
           <% hack.tag_list.each do |tag| %>
             <span class="tag-list"><%= tag %></span>

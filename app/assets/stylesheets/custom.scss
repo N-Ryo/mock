@@ -364,18 +364,24 @@ header, footer{
       }
     }
   }
+  .hack-content{
+    margin: 0 !important;
+    margin-bottom: 10px !important;
+  }
   .new-top-title{
   position: relative;
-  .new-h1{
-    position: absolute;
+    .new-h1{
+      position: absolute;
+    }
   }
-}
 
 }
 //タブレットレスポンシブのPCサイズ用CSS
 @media (min-width: 992px){
   .home{
     .center-col{
+      margin: 0 !important;
+      padding: 0;
       border-top: 1px solid #ddd;
     }
     .pc-trend-nav{
@@ -482,12 +488,24 @@ header, footer{
 
 .home{
   padding: 10px 16px;
+  .left-col{
+    li.active a{
+      color: #fff;
+    }
+    li a{
+      color: #333;
+    }
+  }
+
   .center-col{
+    margin: 0 15px 10px 15px;
     background-color: #fff;
-    height: 1000px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    a{
+      color: #333;
+    }
   }
   .pc-trend-nav{
     display: none;
@@ -502,6 +520,7 @@ header, footer{
     &.nav-tabs.nav-justified > li > a{
       border-radius: 4px 4px 0 0;
       border-bottom: 1px solid #ddd;  
+      color: #333;
     }
     &.nav-tabs.nav-justified > .active > a{
       border-bottom: 0 !important;
@@ -518,27 +537,24 @@ header, footer{
   height: 100px;
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: space-around;
   margin: 10px auto;
-  padding: 0 20px;
   border-bottom: #eee 1px solid;
-  .category-icon{
-    width: 70px;
-    height: 70px;
-
-    border: 1px solid #333;
-    span{
-      margin: auto;
-    }
-  }
   .hack-text{
-    width: 80%;
+    width: 90%;
     .names{
       display: inline-flex;
       div{
         margin-right: 5px;
       }
     }
+    .pointing-up{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    
   }
 }
 // users
@@ -574,7 +590,6 @@ header, footer{
   width: 33%;
   a{
     color: #555;
-    width: inherit;
     border-bottom: #3f9200 solid 2px !important;
   }
 }
