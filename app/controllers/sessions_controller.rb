@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  # GET /sessions/new
+
   def new
     render layout: false
   end
@@ -24,14 +24,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  # DELETE /sessions/1
-  # DELETE /sessions/1.json
   def destroy
     log_out if logged_in?
-    respond_to do |format|
-      format.html { redirect_to root_url}
-      format.json { head :no_content }
-    end
+    redirect_to root_url
   end
 
   private

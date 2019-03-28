@@ -1,6 +1,6 @@
 <%= discussion.user.name %><br>
 <%= discussion.content %><br>
 <%= discussion.created_at.strftime("投稿日：%Y/%m/%d") %><br>
-<% if discussion.user_id == current_user.id %>
+<% if current_user?(discussion.user) %>
   <%= link_to '削除', hack_comment_discussion_path(discussion.comment.hack_id, discussion.comment_id, discussion.id), method: :delete, remote: true %><br>
 <% end %>

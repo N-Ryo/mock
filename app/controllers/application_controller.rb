@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_search
+    @q = Hack.ransack(params[:q])
     unless params[:q].nil?
       p params[:q].keys[0]
       case params[:q].keys[0]
@@ -28,13 +29,11 @@ class ApplicationController < ActionController::Base
         )
       when "category_name_cont"
         @key_word = params[:q][:category_name_cont]
-        @q = Hack.ransack(params[:q])
       when "role_name_cont"
         @key_word = params[:q][:role_name_cont]
-        @q = Hack.ransack(params[:q])
+      when "tags_name_cont"
+        @key_word = params[:q][:tags_name_cont]
       end
-    else
-      @q = Hack.ransack(params[:q])
     end
     @hacks = @q.result.includes(:category, :role).page(params[:page]).to_a.uniq
   end

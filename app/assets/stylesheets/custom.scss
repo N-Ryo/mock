@@ -86,7 +86,6 @@ object{
       padding-left: 10px;
     }
     li{
-      width: 45%;
       list-style: none;
       a{
         color: inherit;
@@ -659,6 +658,9 @@ header, footer{
 .search-results{
   background-color: #fff;
   border: #ddd 1px solid;
+}
+a[href^="/search"]{
+  color: #333;
 }
 
 // hack show
