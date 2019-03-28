@@ -33,7 +33,15 @@ input:-ms-input-placeholder {
 object{
   height: 35px;
 }
-
+dl{
+  margin-bottom: 1vw;
+  dt{
+    padding-bottom: 5px;
+  }
+  dd{
+    margin-inline-start: 20px;
+  }
+}
 .navbar{
   background-color: #5FE748;
   li, a{
@@ -741,6 +749,16 @@ form[class^="reaction"], .empty-stars, .evaluation-stars{
   background-color: #5FE748;
   border: #3f9200A0 1px solid;
   border-radius: 60px;
+}
+.submit-btn{
+  background-color: #5FE748;
+  color: #fff;
+  border: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  &:hover{
+    background-color: #3f9200;
+  }
 }
 .right-submit-btn{
   margin-left: auto;

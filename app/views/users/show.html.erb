@@ -5,7 +5,6 @@
       <h1>
         @<%= @user.name %>
       </h1>
-
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
@@ -18,12 +17,47 @@
         <% end %>
         </div>
       <% end %>
-
-      <div class="user-data">
-        website
-        organization
-        location
-        description
+      <div class="user-data row">
+        <dl class="user-info col-xs-6 col-md-12">
+          <dt><b>Web/Blog_URL</b></dt>
+          <dd>
+            <% if @user.website_url %>
+              <%= link_to @user.website_url.truncate(20), @user.website_url %>
+            <% else%>
+              未入力
+            <% end %>
+          </dd>
+        </dl>
+        <dl class="user-info col-xs-6 col-sm-12">
+          <dt><b>所属組織・会社</b></dt>
+          <dd>
+            <% if @user.organization %>
+              <%= @user.organization %>
+            <% else %>
+              未入力
+            <% end %>
+          </dd>
+        </dl>
+        <dl class="user-info col-xs-6 col-sm-12">
+          <dt><b>現在地</b></dt>
+          <dd>
+            <% if @user.location %>
+              <%= @user.location %>
+            <% else %>
+              未入力
+            <% end %>
+          </dd>
+        </dl>
+        <dl class="user-info col-xs-6 col-sm-12">
+          <dt><b>自己紹介</b></dt>
+          <dd>
+            <% if @user.description %>
+              <%= @user.description %>
+            <% else %>
+              未入力
+            <% end %>
+          </dd>
+        </dl>
       </div>
 
       <% if current_user?(@user) %>

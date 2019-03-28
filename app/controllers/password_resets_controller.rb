@@ -4,6 +4,7 @@ class PasswordResetsController < ApplicationController
   before_action :check_expiration, only: [:edit, :update]    # (1) への対応
 
   def new
+    render layout: false
   end
 
   def create
