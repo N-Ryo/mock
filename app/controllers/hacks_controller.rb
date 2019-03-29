@@ -22,9 +22,10 @@ class HacksController < ApplicationController
 
   def create
     @hack = Hack.new(hack_params)
+
     respond_to do |format|
       if @hack.save
-        format.html { redirect_to @hack }
+        format.html { redirect_to @hack, notice: 'Hack was successfully created.' }
       else
         format.html { render :new }
       end
@@ -37,8 +38,10 @@ class HacksController < ApplicationController
       unless hack_id = params[:hack_id]
         hack_id = params[:id]
       end
+      @hack = Hack.find(hack_id)
     end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
     def hack_params
       params.require(:hack).permit(:id, :tag_list, :overview, :category_id, :role_id)
     end
