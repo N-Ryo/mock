@@ -2,9 +2,7 @@ class HacksController < ApplicationController
   before_action :set_hack, only: [:show, :edit, :update, :destroy, :add]
   before_action :set_hack_tags_to_gon, only: [:show]
 
-  def index
-    @hacks = Hack.all
-  end
+  
 
   def show
     @comment = Comment.new
