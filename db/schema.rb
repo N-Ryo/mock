@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20190327164222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_reactions_on_comment_id"
+    t.index ["user_id", "comment_id"], name: "index_reactions_on_user_id_and_comment_id", unique: true
     t.index ["user_id"], name: "index_reactions_on_user_id"
   end
 
@@ -100,6 +101,7 @@ ActiveRecord::Schema.define(version: 20190327164222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_user_category_relationships_on_category_id"
+    t.index ["user_id", "category_id"], name: "index_user_category_relationships_on_user_id_and_category_id", unique: true
     t.index ["user_id"], name: "index_user_category_relationships_on_user_id"
   end
 

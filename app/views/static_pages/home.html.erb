@@ -39,20 +39,18 @@
   <div class="center-col col-md-7">
     <div class="tab-content">
       <div class="tab-pane active daily-trend" id="daily">
-        <% if @daily_hacks%>
-          <% @daily_hacks.each do |daily_hack, point|%>
-            <%= render partial: 'hacks/content', locals: {hack: daily_hack, point: point} %>
-          <%end%>
-        <%end%>
+        <% @daily_hacks.each do |daily_hack|%>
+          <%= render 'hacks/trend_content', hack: daily_hack %>
+        <% end %>
       </div>
       <div class="tab-pane weekly-trend" id="weekly">
-        <% @weekly_hacks.each do |weekly_hack, point|%>
-          <%= render partial: 'hacks/content', locals: {hack: weekly_hack, point: point} %>
+        <% @weekly_hacks.each do |weekly_hack|%>
+          <%= render 'hacks/trend_content', hack: weekly_hack %>
         <%end%>
       </div>
       <div class="tab-pane monthly-trend" id="monthly">
-        <% @monthly_hacks.each do |monthly_hack, point|%>
-          <%= render partial: 'hacks/content', locals: {hack: monthly_hack, point: point} %>
+        <% @monthly_hacks.each do |monthly_hack|%>
+          <%= render 'hacks/trend_content', hack: monthly_hack %>
         <%end%>
       </div>
     </div>

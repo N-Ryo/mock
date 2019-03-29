@@ -3,18 +3,13 @@
     <div class="hack-text">
       <div class="names">
         <div class="category-name">
-          <%= hack.category.name %>
+          <%= hack.cname %>
         </div>
         <div class="role-name">
-          -<%= hack.role.name %>-
+          -<%= hack.rname %>-
         </div>
       </div>
-      <% begin %>
-        <% unless point.blank? %>
-          <div class="pointing-up"><i class="fas fa-level-up-alt"></i> <%= point %></div>
-        <% end %>
-      <% rescue %>
-      <% end %>
+        <div class="pointing-up"><i class="fas fa-level-up-alt"></i> <%= hack.trend_point %></div>
       <label style="display: block;">
         <div class="tag-lists">
           <% hack.tags.each do |tag| %>

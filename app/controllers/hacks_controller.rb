@@ -70,7 +70,9 @@ class HacksController < ApplicationController
       unless hack_id = params[:hack_id]
         hack_id = params[:id]
       end
-      @hack = Hack.find(hack_id)
+      p @hack = Hack.find(hack_id)
+      p @hack.category.name
+      p @hack.role.name
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
