@@ -33,12 +33,14 @@
             <%= form.text_area :description, class: "form-control", id: :user_description, placeholder: 'Self-introduction' %>
           </div>
         <% end %>
-        <div class="field form-group">
-          <%= form.password_field :password, class: "form-control", id: :user_password, placeholder: :password %>
-        </div>
-        <div class="field form-group">
-          <%= form.password_field :password_confirmation, class: "form-control", id: :user_password_confirmation, placeholder: :password_confirmation %>
-        </div>
+        <% unless user.id %>
+          <div class="field form-group">
+            <%= form.password_field :password, class: "form-control", id: :user_password, placeholder: :password %>
+          </div>
+          <div class="field form-group">
+            <%= form.password_field :password_confirmation, class: "form-control", id: :user_password_confirmation, placeholder: :password_confirmation %>
+          </div>
+        <% end %>
         <div class="actions">
           <%= form.submit '登録', class: "form-control" %>
         </div>
