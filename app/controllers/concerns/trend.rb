@@ -12,7 +12,7 @@ module Trend
         INNER JOIN roles ON hacks.role_id = roles.id
       WHERE
         reactions.updated_at >= ?
-      GROUP BY hacks.id
+      GROUP BY hacks.id, categories.name, roles.name
       ORDER BY trend_point desc
       LIMIT 20",
       date
