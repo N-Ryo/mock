@@ -14,8 +14,6 @@
       <%= form.hidden_field :discussion_id, value: discussion.id %>
       <%= form.text_area :content, rows: 1, class: "form-control", style: "text-align: center;", placeholder: "Let's discussion!!!" %>
       <%= button_tag 'リプライ', class: "btn right-submit-btn reply-btn", type: 'submit' %>
-    <% end %>
-  <%else%>
-    <%= link_to 'ログインすることでディスカッションに参加できます', new_user_path %>
+    <% end %>    
   <%end%>
 </div>

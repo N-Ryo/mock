@@ -33,7 +33,9 @@
                   <%= button_tag '新規投稿', class: "btn right-submit-btn", type: 'submit' %>
                 <% end %>
               <%else%>
-                <%= link_to 'ログインすることでディスカッションに参加できます', new_user_path %>
+                <div style="text-align: center;">
+                  <%= link_to 'ログインすることでディスカッションに参加できます', new_user_path %>
+                </div>
               <%end%>
             </div>
           </div>
