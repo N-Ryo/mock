@@ -2,7 +2,9 @@ class HacksController < ApplicationController
   before_action :set_hack, only: [:show, :edit, :update, :destroy, :add]
   before_action :set_hack_tags_to_gon, only: [:show]
 
-  
+  def index
+    @hacks = Hack.all
+  end
 
   def show
     @comment = Comment.new
@@ -30,8 +32,26 @@ class HacksController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @hack.update(hack_params)
+        format.html { redirect_to @hack }
+      else
+        format.html { render :edit }
+        format.js
+      end
+    end
+  end
+
+  def destroy
+    @hack.destroy
+    respond_to do |format|
+      format.html { redirect_to hacks_url }
+      format.json { head :no_content }
+    end
+  end
+
   private
-    
     def set_hack
       unless hack_id = params[:hack_id]
         hack_id = params[:id]
@@ -39,7 +59,6 @@ class HacksController < ApplicationController
       @hack = Hack.find(hack_id)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def hack_params
       params.require(:hack).permit(:id, :tag_list, :overview, :category_id, :role_id)
     end
