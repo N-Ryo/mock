@@ -1,4 +1,4 @@
-<%= discussion.user.name %><br>
+<%= link_to discussion.user.name, discussion.user %><br>
 <%= discussion.content %><br>
 <%= discussion.created_at.strftime("投稿日：%Y/%m/%d") %><br>
 <% if current_user?(discussion.user) %>
