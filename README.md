@@ -1,24 +1,53 @@
-# README
+# mock
+[https://move-hack.herokuapp.com/](https://move-hack.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+***mock*** は全エンジニアに向けた、ユーザー投稿型のリファレンスサイトです。
+`とある言語・FW` の `とある機能` を実装するために必要な情報(Hack)をまとめていき、ユーザー同士でまとめられた情報を吟味・評価し、機能実装のための最適解を導き出していきます。
+今SEO上位にあるものは、実装が容易なものだったり過去に主流だったものも多数存在します。また、新たな言語を習得する際に洗練された情報があったほうが、より習得が容易になり理解度も上がります。
+公式リファレンスサイトでどこを見ればいいかわからない初学者や、ひとつの機能を実装するためのアプローチが複数ありどちらが今回最適なのか判別できない上級者以外の人、多言語学習者のために、現在の最適解がわかるリファレンスサイトを目指しています。
 
-* Ruby version
+## 機能一覧
+- ユーザーCRUD機能（[Railsチュートリアル](https://railstutorial.jp/)参考）
+- ログイン記憶（session）機能
+- パスワードリセット、アカウント有効化機能
+- ユーザーフォロー機能(Ajax)
+- リファレンス題材(Hack)投稿機能
+- リファレンス解説(Commentary)CRUD機能
+- ディスカッションCRUD機能(Ajax)
+- Daily, Weekly, Monthlyランキング機能
+- 解説評価機能(Ajax)
+- 検索機能(ransack)
+- リファレンス題材のタグ管理機能(acts-as-taggable-on)
+- カテゴリお気に入り機能
 
-* System dependencies
+## モデル一覧
+![mock_model](images/mock_model.jpeg "mock_model")
 
-* Configuration
+### 苦労したところランキング
+1. モデリング
+2. Daily, Weekly, Monthlyランキング機能
+3. 検索機能(ransack)
+4. 解説評価機能(Ajax)
+5. リファレンス題材のタグ管理機能(acts-as-taggable-on)
 
-* Database creation
+## モデリング
+はじめにどのようなモデル構成で開発を進めていくのか、ここで一番時間を要しました。開発途中で、Discussionテーブルを追加したり、Category, RoleテーブルをHackモデルから独立させたり、独立させたモデル（このモデルを同じテーブルにするのかも迷いました）を中間テーブルで繋ぐのか、アソシエーションのみで紐づけるのかなど、色々なパターンを考えました。
+特に、上記で独立させたRoleに新しくデータを保存する時、Hackの更新と連動させる必要があったのですが、通常と「belongs_to, has_many」の関係性が逆であったために、accepts_nested_attributes_forを定義するクラスや引数の形を動作する状態にするのに苦労しました。
 
-* Database initialization
+### Daily, Weekly, Monthlyランキング機能
+find_by_sqlメソッドでSQLを直に発行したのですが、ここで多くのテーブルを跨いで値を取得しました。SQlite3(開発・テスト)とPostgresql(本番)で使えるJOINの形が異なるために、だいぶ時間を要しました。
 
-* How to run the test suite
+![mock_trend](images/mock_trend.jpeg "mock_trend")
 
-* Services (job queues, cache servers, search engines, etc.)
+#### 各スコア計算ロジック
 
-* Deployment instructions
+【評価スコア】=【解説評価】*【評価したユーザーのエンジニア歴】
+【ランキングスコア】=【特定日から今までに行われた評価スコアの合計】
 
-* ...
+#### 【ランキングスコア】SQL算出ロジック
+1. １日（１週間・１ヶ月）前から今日までの評価データを拾う
+2. 各評価に紐付くユーザーとリファレンス(解説テーブル経由)を拾う
+3. ビューで使用するテーブルも紐付けてSELECT文で指定する
+4. 3と同じSELECT文でポイントを合計するため、sumを使用して上記のロジックを元に計算処理を記述する
